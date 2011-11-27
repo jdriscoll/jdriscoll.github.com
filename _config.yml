@@ -1,0 +1,6 @@
+permalink: /blog/:year/:month/:title.html
+pygments: true
+exclude:
+- Rakefile
+- README.markdown
+- public

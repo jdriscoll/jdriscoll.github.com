@@ -1,0 +1,107 @@
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    font-family: "MyriadPro-Regular", "Myriad Pro Regular", MyriadPro, "Myriad Pro", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    text-align: center;
+    color: #000;
+}
+
+#logo {
+    position: absolute;
+    background: #fff url("/assets/img/d3.png") no-repeat top left;
+    *background: #fff url("/assets/img/d3-ie.gif") no-repeat top left;            
+    height: 80px;
+    width: 204px;
+    top: 50%;
+    left: 50%;
+    margin: -40px 0 0 -102px;
+}
+
+#logo h1 {
+    margin-left: -3000px;
+    color: #fff;
+}
+
+#contact {
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    left: 0;
+}
+
+#contact p {
+    margin: 0;
+    padding: 0;
+}
+
+#contact a {
+    color: #2e2e2e;
+    margin-left: 20px;
+    padding: 3px 0;
+}
+
+#contact a.mail {
+    padding-left: 26px;
+    background: #fff url("/assets/img/email.png") no-repeat 0 50%;
+}
+
+#contact a.blog {
+    padding-left: 26px;
+    background: #fff url("/assets/img/blog.png") no-repeat 0 50%;
+}
+
+#contact a.code {
+    padding-left: 26px;
+    background: #fff url("/assets/img/code.png") no-repeat 0 50%;
+}
+
+#contact a.twitter {
+    padding-left: 26px;
+    background: #fff url("/assets/img/twitter.png") no-repeat 0 50%;
+}
+
+#contact a.first {
+    margin-left: 0;
+}
+
+.tweet-wrap {
+    display: inline;
+    border: 1px solid red;
+}
+
+.tweet {
+    position: absolute;
+    display: block;
+    left: 400px;
+    max-width: 350px;
+    min-width: 200px;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 10px #ccc;  
+    -moz-box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #ccc;
+    
+}
+
+.tweet ul, .tweet li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tweet a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.tweet img {
+    position: absolute;
+    bottom: -12px;
+    right: 40px;
+}
+
