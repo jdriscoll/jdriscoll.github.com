@@ -9,7 +9,7 @@ I've put together some thoughts on a few topics related to software development 
 
 Justin
 
-## Coding Style (or) Coloring Within the Lines
+## Coding Style and Coloring Within the Lines
 
 To start with I'd like to make a few suggestions about coding style as we move forward. I have no desire to make claims on what the BEST coding style is. Only a couple of points of focus I think aid productivity, developer happiness and collaboration.
 
