@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: writer
 title: Code@Makalu
 ---
 
