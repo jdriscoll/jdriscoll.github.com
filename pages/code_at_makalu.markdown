@@ -15,7 +15,7 @@ To start with I'd like to make a few suggestions about coding style as we move f
 
 ### Readability Counts
 
-On thing I admire about Python is it's focus on simplicity and readability above all else. [The Zen of Python](http://www.python.org/dev/peps/pep-0020/) is a good read for any developer and, in my opinion, applies to any language. Mostly, though, it's a good thing to keep in mind that every line of code will be read far many more times than it will be written. Comment where appropriate. Use descriptive variable names. The shortest way to write something is not always the best.
+One thing I admire about Python is it's focus on simplicity and readability above all else. [The Zen of Python](http://www.python.org/dev/peps/pep-0020/) is a good read for any developer and, in my opinion, applies to any language. Mostly, though, it's a good thing to keep in mind that every line of code will be read far many more times than it will be written. Comment where appropriate. Use descriptive variable names. The shortest way to write something is not always the best.
 
 I also recommend anyone who has a current Apple developer account watch this presentation (if you're not an Apple developer, and you'd like to see this, let me know):
 
@@ -27,7 +27,7 @@ When working on an existing code-base, the second most helpful thing a developer
 
 ### External Dependencies Are Expensive
 
-The developer community has greatly benefited from the availability of reusable code on the internet. We should try to remain aware, however, that every external dependency we add to a project has a cost. There is cost in learning to use a new, possibly poorly documented, API. There is also a cost in having to update both the new library and it's own dependencies. This is especially true on iOS where we can not control the deployment platform and a update that breaks a 3rd-party library can mean a lot of work and wasted time. I'm not championing re-inventing the wheel every time. I just suggest we always weigh the pros and cons of an in-house implementation and/or using an official lower-level API to accomplish the same task.
+The developer community has greatly benefited from the availability of reusable code on the internet. We should try to remain aware, however, that every external dependency we add to a project has a cost. There is cost in learning to use a new, possibly poorly documented, API. There is also a cost in having to update both the new library and it's own dependencies. This is especially true on iOS where we can not control the deployment platform. An OS update that breaks a 3rd-party library can mean a lot of extra work and wasted time. I'm not championing re-inventing the wheel every time. I just suggest we always weigh the pros and cons of an in-house implementation and/or using an official lower-level API to accomplish the same task.
 
 ## GitHub, Branching and Pull Requests
 
@@ -41,7 +41,7 @@ The biggest advantages to this approach would be an increased ability to develop
 
 ## Exceptional
 
-Lastly, I'd like to suggest we should all try and make a better attempt to keep our Exceptional queues clean for all of our apps. For a while now Exceptions thrown by testing new features are left open among real production errors and real exceptions aren't always closed when they're fixed. Recently I've gone through most of the queues (MLK still needs review, I'm hoping Josh can help me with this.) and cleared out the old and (from what I can tell) no longer relevant. This also means every developer needs access to our account. It might be a good goal to *try* to have all queues empty of development errors and any low hanging fruit, by the end of the day on Friday each week.
+Lastly, I'd like to suggest we all try and make a better attempt to keep our Exceptional queues clean for all of our apps. For a while now Exceptions thrown by testing new features are left open among real production errors and real exceptions aren't always closed when they're fixed. Recently I've gone through most of the queues (MLK still needs review, I'm hoping Josh can help me with this.) and cleared out the old and (from what I can tell) no longer relevant. This also means every developer needs access to our account. It might be a good goal to *try* to have all queues empty of development errors and any low hanging fruit, by the end of the day on Friday each week.
 
 ## Comments and Suggestions
 
