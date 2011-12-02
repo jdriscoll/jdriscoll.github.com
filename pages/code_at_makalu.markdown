@@ -23,7 +23,7 @@ I also recommend anyone who has a current Apple developer account watch this pre
 
 ### Code to the Style of the Project
 
-When working on an existing code-base, the second most helpful thing a developer can do is mimic the overall style of the existing codebase. This includes using existing patterns or conventions (unless a good case can be made to break from the norm). Ruby provides a lot of flexibility in how something might be accomplished, but readability and maintainability is better served by consistency.
+When working on an existing code-base, the second most helpful thing a developer can do is mimic the overall style of the existing codebase. This includes using existing patterns or conventions (unless a good case can be made to break from the norm). Ruby provides a lot of flexibility in how something might be accomplished, but readability and maintainability are better served by consistency.
 
 ### External Dependencies Are Expensive
 
