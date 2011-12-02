@@ -41,7 +41,7 @@ The biggest advantages to this approach would be an increased ability to develop
 
 ## Exceptional
 
-Lastly, I'd like to suggest We should all try and make a better attempt to keep our Exceptional queues clean for all of our apps. For a while now Exceptions thrown by testing new features are left open among real production errors and real exceptions aren't always closed when they're fixed. Recently I've gone through most of the queues (MLK still needs review, I'm hoping Josh can help me with this.) and cleared out the old and (from what I can tell) no longer relevant. This also means every developer needs access to our account. It might be a good goal to *try* to have all queues empty of development errors and any low hanging fruit, by the end of the day on Friday each week.
+Lastly, I'd like to suggest we should all try and make a better attempt to keep our Exceptional queues clean for all of our apps. For a while now Exceptions thrown by testing new features are left open among real production errors and real exceptions aren't always closed when they're fixed. Recently I've gone through most of the queues (MLK still needs review, I'm hoping Josh can help me with this.) and cleared out the old and (from what I can tell) no longer relevant. This also means every developer needs access to our account. It might be a good goal to *try* to have all queues empty of development errors and any low hanging fruit, by the end of the day on Friday each week.
 
 ## Comments and Suggestions
 
