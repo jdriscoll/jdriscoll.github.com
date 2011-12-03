@@ -8,11 +8,9 @@
   <body>
     <header>
       <div id="title-block">
-        {% if backlink != null %}
         <div class="nav-links">
-          <a href="{{ linkback }}">&laquo; back</a>
+          {% if page.title != null %}<a href="/">&laquo; back</a>{% endif %}
         </div>
-        {% endif %}
         <h1><a href="/">A<br>Developing<br>Story</a></h1>
         <h2>by <a href="/pages/about">Justin Driscoll</a></h2>
       </div>
