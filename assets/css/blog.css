@@ -82,7 +82,7 @@ body {
 a:link { color: #3366CC }
 a:visited { color: #224488 }
 
-blockquote,ol,p,ul { display: block; margin: 0 0 1.5em }
+blockquote,ol,p,ul,code { display: block; margin: 0 0 1.5em }
 blockquote { border-left: solid .1em #E4E4E4; color: #919191; padding: 0 1.5em 0 1.4em }
 img { display: block; margin: 1.5em auto }
 
@@ -106,7 +106,6 @@ code {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  margin: 0 0 1.5em;
   padding:10px;
   color:#fff;
 }
