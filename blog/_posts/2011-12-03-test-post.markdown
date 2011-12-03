@@ -1,4 +1,5 @@
 ---
+layout: post
 title: This is a Test
 author: Justin Driscoll
 ---
