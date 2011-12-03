@@ -18,6 +18,22 @@ body {
   padding: 20px;
 }
 
+#title-block .nav-links a {
+  display: block;
+  float: left;
+  margin: -3px -8px;
+  padding: 3px 8px;
+  color: inherit;
+  text-decoration: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+#title-block .nav-links a:hover {
+  background: #999;
+  color: #fff;
+}
+
 #title-block h1 {
   position: absolute;
   bottom: 12px;
