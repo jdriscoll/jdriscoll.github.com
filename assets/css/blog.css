@@ -107,7 +107,7 @@ h1 { font-size: 225%; line-height: 1.3334em; margin: 0 0 .1666em }
 h2 { font-size: 175%; line-height: 1.28571429em; margin: 0 0 .35714286em }
 h3 { font-size: 137.5%; line-height: 1.3636em; margin: 0 0 .5em }
 h4,h5,h6 { font-size: 112.5%; line-height: 1.3334em; margin: 0 0 .7778em }
-h1 a,h2 a,h3 a,h4 a,h5 a,h6 a { color: #333; text-decoration: none; }
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a { color: #333 !important; text-decoration: none; }
 
 ol,ul { list-style-position: outside; padding: 0 }
 ol ol,ol ul,ul ol,ul ul { margin: 0 0 .75em 2em }
