@@ -8,9 +8,9 @@
   <body>
     <header>
       <div id="title-block">
-        {% if backlink %}
+        {% if backlink != null %}
         <div class="nav-links">
-          <a href="/">&laquo; back</a>
+          <a href="{{ linkback }}">&laquo; back</a>
         </div>
         {% endif %}
         <h1><a href="/">A<br>Developing<br>Story</a></h1>
