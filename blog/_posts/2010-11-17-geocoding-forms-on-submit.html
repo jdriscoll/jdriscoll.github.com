@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Geocoding Forms on Submit with Javascript
+abstract: The Google Maps API offers an exceptional geocoding service. It&#8217;s accurate, reliable and well documented. However, on shared hosting environments (such as Google&#8217;s own AppEngine), rate-limiting can become an issue quickly.
 ---
 
 <p>The Google Maps API offers an exceptional <a href="http://code.google.com/apis/maps/documentation/geocoding/index.html" target="_blank">geocoding service</a>. It&#8217;s accurate, reliable and well documented. However, on shared hosting environments (such as Google&#8217;s own AppEngine), rate-limiting can become an issue quickly. Fortunately, using the <a href="http://code.google.com/apis/maps/documentation/javascript/" target="_blank">Javascript API</a> (and <a href="http://jquery.com/" target="_blank">jQuery</a>), we can offload this task to the client where the number of requests from the current IP address is unlikely to become an issue. When implemented in conjunction with server-side geocoding, we can deliver a reasonably robust solution that&#8217;s transparent to the user and gracefully degrades when Javascript is unavailable.</p>
