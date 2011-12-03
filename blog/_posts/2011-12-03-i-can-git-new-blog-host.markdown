@@ -8,7 +8,7 @@ I've designed a new layout and moved adevelopingstory.com to GitHub pages. The s
 
 I also wanted a new design that emphasized readability and simplicity. The previous design was an existing theme I modified, and I was never totally happy with it. With the new layout there's next to no navigation elements, and the content is definitely the focus. It's still a work in progress of course. I'm sure I'll be tweaking it as time goes on. But for now, I'm satisfied.
 
-I haven't had a chance to do any extensive browser testing so if you notice any issues or rendering errors please [let me know](mailto://justin@driscolldev.com).
+I haven't had a chance to do any extensive browser testing so if you notice any issues or rendering errors please [let me know](mailto:justin@driscolldev.com).
 
 *I hope you like it.*
 
