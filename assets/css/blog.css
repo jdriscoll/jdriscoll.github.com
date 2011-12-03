@@ -100,12 +100,13 @@ td,th { border: solid .1em #000; font-family: sans-serif; font-size: 87.5%; line
 pre { display: block; font: normal normal 87.5%/1em monospace, sans-serif; padding:0; }
 code {
   display: block;
-  font-family: monospace, sans-serif;
+  font: normal normal 87.5%/1em monospace, sans-serif;
   overflow:auto;
   background:#333;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  margin: 0 0 1.6875em;
   padding:10px;
   color:#fff;
 }
