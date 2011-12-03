@@ -84,9 +84,7 @@ a:visited { color: #224488 }
 
 blockquote,ol,p,ul { display: block; margin: 0 0 1.5em }
 blockquote { border-left: solid .1em #E4E4E4; color: #919191; padding: 0 1.5em 0 1.4em }
-code { font: normal normal 87.5%/1.71428571em monospace,sans-serif }
 img { display: block; margin: 1.5em auto }
-pre { display: block; font: normal normal 87.5%/1.71428571em monospace,sans-serif; margin: 1.71428571em }
 
 h1,h2,h3,h4,h5,h6 { font-weight: 400 }
 h1 { font-size: 225%; line-height: 1.3334em; margin: 0 0 .1666em }
@@ -98,3 +96,14 @@ ol,ul { list-style-position: outside; padding: 0 }
 ol ol,ol ul,ul ol,ul ul { margin: 0 0 .75em 2em }
 table { border-collapse: collapse; margin: 1.5em 0; width: 100% }
 td,th { border: solid .1em #000; font-family: sans-serif; font-size: 87.5%; line-height: 1.71428571em; text-align: center }
+
+pre { display: block; font: normal normal 87.5%/1.5em monospace, sans-serif; }
+code {
+  display: block;
+  font: normal normal 87.5%/1.5em monospace, sans-serif;
+  overflow:auto;
+  background:#121212;
+  margin: 0 0 1.5em;
+  padding:10px;
+  color:#fff;
+}
