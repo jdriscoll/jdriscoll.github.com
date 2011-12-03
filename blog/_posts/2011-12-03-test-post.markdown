@@ -1,9 +1,0 @@
----
-layout: post
-title: This is a Test
-author: Justin Driscoll
----
-
-## Testing
-
-This is a [test](http://google.com) *post*
