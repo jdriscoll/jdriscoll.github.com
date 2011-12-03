@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{% if page.title != null %}{{ page.title }} - {% endif %}A Developing Story</title>
-    <link rel="stylesheet" href="/assets/css/blog.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  </head>
-  <body>
-    <header id="title-block">
-      <h1>A<br>Developing<br>Story</h1>
-      <h2>by <a href="/pages/about">Justin Driscoll</a></h2>
-    </header>
-    
-    <section id="page">
-      {{ content }}
-    </section>
-    
-    <footer></footer>
-  </body>
-</html>
+<section id="post-meta">
+  <dl>
+    <dt>Published on:</dt>
+    <dd>{{ page.date | date: "%B %d, %Y" }}</dd>
+    <dt>Permalink:</dt>
+    <dd><a href="{{ page.url }}">{{ page.title }}</a></dd>
+  </dl>
+</section>
+
+<section id="page">
+  <header>
+    <h1>{{ page.title }}</h1>
+  </header>
+  <section class="post-body">
+    {{ post.content }}
+  </section>
+</section>

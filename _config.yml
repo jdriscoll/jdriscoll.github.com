@@ -4,3 +4,4 @@ exclude:
 - Rakefile
 - README.markdown
 - public
+- design
