@@ -1,0 +1,22 @@
+---
+layout: main
+title: A Developing Story
+id: blog
+---
+
+{% for post in site.categories.blog %}
+  <article>
+    <header>
+      <em>{{ post.date | date: "%B %d, %Y" }}</em>
+      <h2>
+        <a href="{{ post.url }}" title="{{ post.title }}"> 
+          {{ post.title }}
+        </a>
+      </h2>
+    </header>
+    <div class="excerpt">
+      {{ post.excerpt | markdownify }}
+      <p><a href="{{ post.url }}">Continue reading...</a></p>
+    </div>
+  </article>
+{% endfor %}
