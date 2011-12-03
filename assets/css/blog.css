@@ -95,6 +95,10 @@ body {
   margin-bottom: 30px;
 }
 
+.post-date {
+  font-size: 0.875em;
+}
+
 a:link { color: #3366CC }
 a:visited { color: #224488 }
 
