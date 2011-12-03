@@ -1,0 +1,30 @@
+---
+layout: post
+title: JCDHTTPConnection
+---
+
+<p>The other day on <a href="http://twitter.com/jdriscoll" target="_blank">twitter</a> I <a href="https://twitter.com/#!/jdriscoll/status/137513067033526272" target="_blank">mused</a> (i.e. complained):</p>
+
+
+
+<blockquote>
+
+  <p>iOS needs a block-based UIAlertView. So many currently-delegate based interfaces would be better served by block callbacks.</p>
+
+</blockquote>
+
+
+
+<p>Being a man of action, <a href="http://twitter.com/bricooke" target="_blank">Brian Cooke</a> took the off-hand remark and <a href="http://roobasoft.com/blog/2011/11/18/rooalertview/" target="_blank">ran with it</a>, creating his <a href="https://github.com/bricooke/RooAlertView" target="_blank">RooAlertView</a>  block-based UIAlertView wrapper.</p>
+
+
+
+<p>Inspired by Brian&#8217;s gift of source – and maybe just to keep this code-volley going – I&#8217;m putting up my own block-based <a href="http://developer.apple.com/library/ios/#documentation/Cocoa/Reference/Foundation/Classes/NSURLConnection_Class/Reference/Reference.html" target="_blank">NSURLConnection</a> wrapper, <a href="https://github.com/jdriscoll/JCDHTTPConnection" target="_blank">JCDHTTPConnection</a>.</p>
+
+
+
+<p>JCDHTTPConnection is a pretty simple class that takes a NSURLRequest object and (up to) three block callbacks: onSuccess, onFailure, and onDidSendData. It&#8217;s asyncronous, of course, and much more convenient than setting up a delegate. I&#8217;m pretty happy with it, and I hope it might help someone out.</p>
+
+
+
+<p>Get it at <a href="https://github.com/jdriscoll/JCDHTTPConnection" target="_blank">GitHub</a>.</p>

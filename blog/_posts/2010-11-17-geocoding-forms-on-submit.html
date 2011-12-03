@@ -1,32 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>ImageKit Has Moved - A Developing Story</title>
-    <link rel="stylesheet" href="../assets/css/blog.css" type="text/css" media="screen" title="no title" charset="utf-8">
-  </head>
-  <body>
-    <header>
-      <div id="title-block">
-        <h1><a href="/">A<br>Developing<br>Story</a></h1>
-        <h2>by <a href="/pages/about">Justin Driscoll</a></h2>
-      </div>
-      <div id="post-meta">
-        <dl>
-          <dt>Published on:</dt>
-          <dd>September 12, 2011</dd>
-          <dt>Permalink:</dt>
-          <dd><a href="http://adevelopingstory.com/posts/2011/11/imagekit-has-moved.html">ImageKit Has Moved</a></dd>
-        </dl>
-      </div>
-    </header>
-    
-    <section id="page">
-      <header>
-        <h1>ImageKit Has Moved</h1>
-      </header>
-      <section class="post-body">
-
+---
+layout: post
+title: Geocoding Forms on Submit with Javascript
+---
 
 <p>The Google Maps API offers an exceptional <a href="http://code.google.com/apis/maps/documentation/geocoding/index.html" target="_blank">geocoding service</a>. It&#8217;s accurate, reliable and well documented. However, on shared hosting environments (such as Google&#8217;s own AppEngine), rate-limiting can become an issue quickly. Fortunately, using the <a href="http://code.google.com/apis/maps/documentation/javascript/" target="_blank">Javascript API</a> (and <a href="http://jquery.com/" target="_blank">jQuery</a>), we can offload this task to the client where the number of requests from the current IP address is unlikely to become an issue. When implemented in conjunction with server-side geocoding, we can deliver a reasonably robust solution that&#8217;s transparent to the user and gracefully degrades when Javascript is unavailable.</p>
 
@@ -265,11 +240,3 @@ geocoder.geocode({'address': addr}, onSuccess);</code></pre>
 
 
 <p>If you have any questions, comments or corrections please contact me at <a href="mailto:justin@driscolldev.com" target="_blank">justin@driscolldev.com</a>.</p>
-        
-        
-      </section>
-    </section>
-    
-    <footer></footer>
-  </body>
-</html>

@@ -97,12 +97,15 @@ ol ol,ol ul,ul ol,ul ul { margin: 0 0 .75em 2em }
 table { border-collapse: collapse; margin: 1.5em 0; width: 100% }
 td,th { border: solid .1em #000; font-family: sans-serif; font-size: 87.5%; line-height: 1.71428571em; text-align: center }
 
-pre { display: block; font: normal normal 87.5%/1.5em monospace, sans-serif; }
+pre { display: block; font: normal normal 87.5%/1em monospace, sans-serif; padding:0; }
 code {
   display: block;
-  font: normal normal 87.5%/1.5em monospace, sans-serif;
+  font: normal normal 87.5%/1em monospace, sans-serif;
   overflow:auto;
-  background:#121212;
+  background:#333;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   margin: 0 0 1.5em;
   padding:10px;
   color:#fff;
