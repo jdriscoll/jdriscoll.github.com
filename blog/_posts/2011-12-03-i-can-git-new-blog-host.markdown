@@ -12,5 +12,4 @@ I haven't had a chance to do any extensive browser testing so if you notice any 
 
 *I hope you like it.*
 
-
-
+**Updated on 12-4-2011:** I've added some media queries to help the site to render correctly on most smaller devices. The fixed title block was obscuring the content on iPhone (embarrasing!) and I didn't notice it testing the site on my iPad. Using CSS media queries, the title block is now displayed inline and full-width smaller screens. Did I mention this was a work in progress?
