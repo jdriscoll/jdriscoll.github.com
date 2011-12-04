@@ -106,7 +106,8 @@ body {
     padding: 0 20px; }
   #title-block {
     position: relative;
-    width: auto; }
+    width: auto;
+    height: 180px; }
   #post-meta {
     display: none; }  
   #page { 
