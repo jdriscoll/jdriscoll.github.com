@@ -101,6 +101,20 @@ body {
   color: #999;
 }
 
+@media screen and (max-width: 660px) {
+  body {
+    padding: 0 20px; }
+  #title-block {
+    position: relative;
+    width: auto; }
+  #post-meta {
+    display: none; }  
+  #page { 
+    clear: both;
+    margin: 0;
+    padding-top: 30px; }
+}
+
 a:link { color: #3366CC }
 a:visited { color: #224488 }
 
