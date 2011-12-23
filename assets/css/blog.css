@@ -121,7 +121,6 @@ a:visited { color: #224488 }
 
 blockquote,ol,p,ul,code { display: block; margin: 0 0 1.5em }
 blockquote { border-left: solid .1em #E4E4E4; color: #919191; padding: 0 1.5em 0 1.4em }
-img { display: block; margin: 1.5em auto }
 
 h1,h2,h3,h4,h5,h6 { font-weight: 400 }
 h1 { font-size: 225%; line-height: 1.3334em; margin: 0 0 .1666em }
