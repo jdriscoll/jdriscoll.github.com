@@ -1,4 +1,8 @@
-# NSManagedDocument, Nested Contexts and Notifications
+---
+layout: post
+title: NSManagedDocument, Nested Contexts and Notifications
+excerpt: NSManagedDocument is great. It wraps up an entire core data stack into a nice little package. But like most new APIs, there are a few little details that can trip you up if you're not careful.
+---
 
 NSManagedDocument is great. It wraps up an entire core data stack into a nice little package. But like most new APIs, there are a few little details that can trip you up if you're not careful.
 
