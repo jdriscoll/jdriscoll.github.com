@@ -141,10 +141,12 @@ pre {
 }
 
 code {
+  display: inline;
   font: normal normal 87.5%/1em monospace, sans-serif;
 }
 
 pre code {
+  display: block;
   background:#333;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
