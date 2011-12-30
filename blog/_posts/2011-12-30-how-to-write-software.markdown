@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How To Write Software
-excerpt: Writing software is hard.
+excerpt: Writing software is hard...
 ---
 
     10 Pick out the most simple thing your software needs to do
