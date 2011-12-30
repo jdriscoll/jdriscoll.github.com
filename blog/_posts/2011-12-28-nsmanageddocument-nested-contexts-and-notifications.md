@@ -38,6 +38,6 @@ Here's a example:
 
 Cheers!
 
-*Update Dec 30, 2011*
+*Updated Dec 30, 2011*
 
 The best introduction to NSManagedDocument I've found so far is in lectures 13 and 14 from [Stanford's iPhone and iPad development course](http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewPodcast?id=473757255). Available for free on iTunes U.
