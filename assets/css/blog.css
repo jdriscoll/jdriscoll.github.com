@@ -153,5 +153,6 @@ pre code {
   border-radius: 3px;
   margin: 0 0 1.875em;
   padding:10px;
+  font: normal normal 87.5%/1.2em monospace, sans-serif;
   color:#dbeeff;
 }
