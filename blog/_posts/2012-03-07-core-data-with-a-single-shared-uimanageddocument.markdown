@@ -4,13 +4,13 @@ title: Core Data with a Single Shared UIManagedDocument
 excerpt: UIManagedDocument is a great way to set up a Core Data stack for your application. With application delegates taking a smaller role in newer applications, sharing the document's managed object context can be tricky.
 ---
 
-UIManagedDocument is a great way to set up a Core Data stack for your application. It's also the best way to enable iCloud support for your Core Data applications. For applications with a single view controller as the entry point, setting up the document and passing it on to subsequent view controllers works great. But if your application has multiple entry points, or a single entry point you can not modify (such as a UITabBarController), it can be a little less straight forward.
+UIManagedDocument is a great way to set up a Core Data stack for your application. It's also the best way to enable iCloud support for your Core Data applications. For applications with a single view controller as the entry point, setting up the document and passing it on to subsequent view controllers works great. But if your application has multiple entry points, or a single entry point you cannot modify (such as a UITabBarController), it can be a little less straightforward.
 
 While re-writing an existing app to use many of the new features in iOS 5, I ran into this very issue. The application used a tab bar controller as the entry point and my previous experience with letting the first view controller set up the managed document was not going to work. How could I provide access to the document, while insuring it was in the correct state, to all the view controllers in the app? I guess I could have set it up in the application delegate and then grabbed a reference to the tab bar controller through the window and then used `respondsToSelector:` to figure out which controllers had a document property and...
 
 Blech.
 
-One thing I really like about writing apps for iOS 5 is how little the application delegate is responsible for now. Previously it had become a dumping ground for setting up nearly everything for an application while handling application events and pretty much everything else that didn't fit into a view controller. Using it for setting up my managed document just seemed like a step backward. Why not create a new class? A global singleton whose only job is to handle and provide a convenient interface to the managed document?
+One thing I really like about writing apps for iOS 5 is how little the application delegate is responsible for now. Previously it had become a dumping ground for setting up nearly everything for an application while handling application events and pretty much everything else that didn't fit into a view controller. Using it for setting up my managed document seemed like a step backward. Why not create a new class? A global singleton whose only job is to handle and provide a convenient interface to the managed document?
 
 	#import <Foundation/Foundation.h>
 	
