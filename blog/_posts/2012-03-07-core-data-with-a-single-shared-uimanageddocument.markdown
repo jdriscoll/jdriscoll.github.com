@@ -114,7 +114,7 @@ Looking inside:
 	
 	@end
 
-Pretty simple. First we setup our singleton using `dispatch_once`. Then on initialization we define our document, set up the persistent store options and register for a couple notifications (optional, of course). When the document is needed (when `performWithDocument:` is called) we look to see if the document exists, or is closed, creating it or opening it as required. Once we've successfully loaded our document we execute the block we've received, passing in our now-ready document. Now we have a nice way of accessing our document:
+Pretty simple. First we setup our singleton using `dispatch_once`. Then on initialization we define our document, set up the persistent store options and register for a couple notifications (optional, of course). When the document is needed (when `performWithDocument:` is called) we look to see if the document exists, or is closed, creating it or opening it as required. Once we've loaded our document we execute the block we've received, passing in our now-ready document. Now we have a nice way of accessing our document:
 
 	#import "MYDocumentHandler.h"
 	
