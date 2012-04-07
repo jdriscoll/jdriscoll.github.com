@@ -155,4 +155,5 @@ pre code {
   padding:10px;
   font: normal normal 87.5%/1.2em monospace, sans-serif;
   color:#dbeeff;
+  overflow: auto;
 }
