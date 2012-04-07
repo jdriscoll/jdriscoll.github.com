@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Core Data With a Single Shared UIManagedDocument
+title: Core Data with a Single Shared UIManagedDocument
 excerpt: UIManagedDocument is a great way to set up a Core Data stack for your application. With application delegates taking a smaller role in newer applications, sharing the document's managed object context can be tricky.
 ---
 
