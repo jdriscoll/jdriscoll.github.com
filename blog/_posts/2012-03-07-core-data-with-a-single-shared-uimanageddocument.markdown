@@ -12,6 +12,7 @@ Blech.
 
 One thing I really like about writing apps for iOS 5 is how little the application delegate is responsible for now. Previously it had become a dumping ground for setting up nearly everything for an application while handling application events and pretty much everything else that didn't fit into a view controller. Using it for setting up my managed document seemed like a step backward. Why not create a new class? A global singleton whose only job is to handle and provide a convenient interface to the managed document?
 
+{% highlight objc %}
 	#import <Foundation/Foundation.h>
 	
 	typedef void (^OnDocumentReady) (UIManagedDocument *document);
@@ -24,7 +25,8 @@ One thing I really like about writing apps for iOS 5 is how little the applicati
 	- (void)performWithDocument:(OnDocumentReady)onDocumentReady;
 	
 	@end
-	
+{% endhighlight %}
+  
 There. Just one instance method. Define a block that takes a UIManagedDocument as it's only argument and feel secure that it will only be executed once the document has been successfully loaded (if necessary).
 
 Looking inside:
