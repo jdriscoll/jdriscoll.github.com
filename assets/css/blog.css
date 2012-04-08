@@ -116,13 +116,13 @@ body {
     padding: 20px 10px; }
 }
 
-a:link { color: #3366CC }
-a:visited { color: #224488 }
+a:link { color: #3366cc }
+a:visited { color: #ab33cc }
 
 blockquote,ol,p,ul,code { display: block; margin: 0 0 1.5em }
 blockquote { border-left: solid .1em #E4E4E4; color: #919191; padding: 0 1.5em 0 1.4em }
 
-h1,h2,h3,h4,h5,h6 { font-weight: 400 }
+h1,h2,h3,h4,h5,h6 { font-weight: 400; color:#3366cc; }
 h1 { font-size: 225%; line-height: 1.3334em; margin: 0 0 .1666em }
 h2 { font-size: 175%; line-height: 1.28571429em; margin: 0 0 .35714286em }
 h3 { font-size: 137.5%; line-height: 1.3636em; margin: 0 0 .5em }
