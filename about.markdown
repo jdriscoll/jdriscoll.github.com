@@ -7,5 +7,5 @@ My name is Justin Driscoll. I'm a software developer with [Makalu Interactive](h
 
 <p>
 	<img style="float:left;margin-right:1em;" src="https://si0.twimg.com/images/dev/cms/intents/bird/bird_black/bird_32_black.png" alt="Twitter icon" />
-	<a href="http://twitter.com/jdriscoll">Follow me on Twitter</a>
+	<small><a href="http://twitter.com/jdriscoll">Follow me on Twitter</a></small>
 </p>
