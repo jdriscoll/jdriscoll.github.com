@@ -11,7 +11,7 @@ body {
 
 strong { font-weight: bold; }
 em { font-style: italic; }
-small { font-size:12px; }
+small { font-size: 12px; }
 
 #logo {
     position: absolute;
