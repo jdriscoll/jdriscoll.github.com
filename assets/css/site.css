@@ -9,6 +9,10 @@ body {
     color: #000;
 }
 
+small {
+    font-size:11px;
+}
+
 #logo {
     position: absolute;
     background: #fff url("/assets/img/d3.png") no-repeat top left;
