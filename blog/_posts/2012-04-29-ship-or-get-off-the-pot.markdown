@@ -7,5 +7,4 @@ excerpt: Done.
 
 [Ship or Get Off The Pot](http://5by5.tv/buildanalyze/74).
 
-([Done.](http://itunes.com/apps/OnePAD))
-
+([Done.](http://itunes.apple.com/us/app/onepad/id523440773?ls=1&mt=8))
