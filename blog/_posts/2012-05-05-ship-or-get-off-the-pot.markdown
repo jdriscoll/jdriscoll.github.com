@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Ship or Get Off The Pot
 excerpt: Done.
 ---
