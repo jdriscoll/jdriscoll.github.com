@@ -44,5 +44,5 @@ Then we just need to pull out the destination frame of the keyboard, convert it'
 
 So if you're app supports the iPad and relies on keyboard events, be sure to test it with the keyboard undocked. It's one of those problems that's far easier to fix than to discover.
 
-And if you're in the market for a notebook/journaling app for iPhone, iPad and iPod Touch, I hope you'll take a look at [OnePAD](http://www.onepadapp.com).
+And if you're in the market for a unique notebook/journaling app for iPhone, iPad and iPod Touch, I hope you'll take a look at [OnePAD](http://www.onepadapp.com).
     
