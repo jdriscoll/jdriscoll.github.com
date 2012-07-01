@@ -17,7 +17,7 @@ It turns out that when the keyboard is "undocked", as they say, your app no long
 
 With the cause of the problem established, I had only to figure out how to replicate these events when using the undocked keyboard. Reviewing the [UIWindow class reference](http://developer.apple.com/library/ios/#DOCUMENTATION/UIKit/Reference/UIWindow_Class/UIWindowClassReference/UIWindowClassReference.html) It was clear that the undocked keyboard handled UI events a little differently. Instead of separate show/hide events it offered separate will/didChangeFrame events triggered by both user interaction and other application events. This was a start but there was no direct way to map these events to the show/hide events my application relied on.
 
-The solution I settled on, and one that seems to work well, is to compare the distination frame from the keyboardDidChangeFrame event's notification to the view's frame and check for an intersection. If the keyboard is visible, it should intersect with the views frame right?
+The solution I settled on, and one that seems to work well, is to compare the destination frame from the keyboardDidChangeFrame event's notification to the view's frame and check for an intersection. If the keyboard is visible, it should intersect with the views frame right?
 
 First we need to register for the event:
 
