@@ -9,4 +9,4 @@ excerpt: I finally got around to putting together a quick screencast for OnePAD,
 
 Written, directed, performed and scored by me (I have no one else to blame). Screen capture by [Screeny](http://www.screenyapp.com), edited on [iMovie](http://itunes.apple.com/us/app/imovie/id408981434?mt=12) and scored using [Garageband for iOS](http://itunes.apple.com/us/app/garageband/id408709785?mt=8). 
 
-OnePAD is available now [on the App Store](http://itunes.apple.com/us/app/onepad/id523440773?ls=1&mt=8).
+OnePAD is [available now on the App Store](http://itunes.apple.com/us/app/onepad/id523440773?ls=1&mt=8).
