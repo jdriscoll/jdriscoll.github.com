@@ -57,6 +57,7 @@ body {
 #title-block h2 a {
   font-style: normal;
   color: #999;
+  text-decoration: underline;
 }
 
 #post-meta {
