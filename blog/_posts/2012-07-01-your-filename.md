@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Lights, Camera, OnePAD
 excerpt: I finally got around to putting together a quick screencast for OnePAD, my iOS daily notebook app.
 ---
