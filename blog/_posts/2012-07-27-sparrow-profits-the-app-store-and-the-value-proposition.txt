@@ -19,9 +19,9 @@ By developing an email client for OS X and/or iOS, the developers behind Sparrow
 
 In the end I believe Sparrow was forced to choose the price-points it sold at, and when offered a generous buyout offer, the only reasonable choice was to accept. If Sparrow’s perceived value proposition had been more in line with it’s development and operating costs, joining Google would have been a much harder choice. It sounds harsh but in the end it was the product, not the App Store, that failed<sup>1</sup>. 
 
-<sup>1</sup> Of couse, by ‘failed’, I mean ‘attracted a juicy buyout offer<sup>2</sup>’.
+<p><sup>1</sup> Of couse, by ‘failed’, I mean ‘attracted a juicy buyout offer<sup>2</sup>’.</p>
 
-<sup>2</sup> Where can I get one of those?
+<p><sup>2</sup> Where can I get one of those?</p>
 
 
 
