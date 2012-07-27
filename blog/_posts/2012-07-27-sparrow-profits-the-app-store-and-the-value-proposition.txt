@@ -1,0 +1,31 @@
+---
+layout: post
+published: false
+title: Sparrow, Profits, the App Store and the Value Proposition 
+excerpt: Everyone has an opinion on the Sparrow acquisition. A lot of people (on Twitter at least) have focused on the rumors that the app was barely profitable.
+---
+
+It seems everyone has an opinion on the Sparrow acquisition. A lot of people (on Twitter at least) have focused on the rumors that the app was barely profitable. Many of these same people have also made the logical leap from “Sparrow was a nice app and I heard a rumor that Sparrow wasn’t profitable on the App Store” to “Even if I make a nice app I will never be profitable on the App Store”.
+
+[Unfortunately, it seems the only people who rarely take part in this type of discusion are the people who ARE profitable on the app store. Maybe because no one wants to be the one to stand up and shout “I’M MAKING GOOD MONEY SUCKS TO BE YOU”.]
+
+Selling an app on the App Store is very much like any other business selling a product to customers. Having a well-made product has only a little to do with success. If no one needs your product, no matter how well made it is, you will fail. If your product provides little or no value to your customers (or they do not at least perceive that it does), you will fail. I would argue (and I am, I suppose) that as well made as Sparrow may have been, there wasn’t enough of a value proposition for it to succeed in a way that they would have resisted acquisition.
+
+Sparrow, whatever their goals may have been, “reverse-[Sherlocked](http://www.urbandictionary.com/define.php?term=sherlocked)” themselves.
+
+Now before I go on I should probably provide a little context just in case you’re not familiar with the term. Historically, a company will come up with a [useful product idea](http://en.wikipedia.org/wiki/Sherlock_(software)), and in some cases (in the interest of it’s customers naturally), Apple will add [similar, built-in, functionality](http://en.wikipedia.org/wiki/Spotlight_(software)) to its OS. Even if the original product is _superior_ this typically reduces the value proposition of these products to near zero (why pay for X when Y is free and backed by a large trusted company).
+
+By developing an email client for OS X and/or iOS, the developers behind Sparrow made the bet that their product would provide customers with enough benefit that they would be willing to pay for something that they could get for free. Not only pay, but pay an amount that would cover their costs and put profits in their coffers.
+
+In the end I believe Sparrow was forced to choose the price-points it sold at, and when offered a generous buyout offer, the only reasonable choice was to accept. If Sparrow’s perceived value proposition had been more in line with it’s development and operating costs, joining Google would have been a much harder choice. It sounds harsh but in the end it was the product, not the App Store, that failed<sup>1</sup>. 
+
+<sup>1</sup> Of couse, by ‘failed’, I mean ‘attracted a juicy buyout offer<sup>2</sup>’.
+
+<sup>2</sup> Where can I get one of those?
+
+
+
+
+
+
+
