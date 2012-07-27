@@ -13,7 +13,7 @@ Selling an app on the App Store is very much like any other business selling a p
 
 Sparrow, whatever their goals may have been, “reverse-[Sherlocked](http://www.urbandictionary.com/define.php?term=sherlocked)” themselves.
 
-Now before I go on I should probably provide a little context just in case you’re not familiar with the term. Historically, a company will come up with a [useful product idea](http://en.wikipedia.org/wiki/Sherlock_(software)), and in some cases (in the interest of it’s customers naturally), Apple will add [similar, built-in, functionality](http://en.wikipedia.org/wiki/Spotlight_(software)) to its OS. Even if the original product is _superior_ this typically reduces the value proposition of these products to near zero (why pay for X when Y is free and backed by a large trusted company).
+Now before I go on I should probably provide a little context just in case you’re not familiar with the term. Historically, a company will come up with a [useful product idea](http://en.wikipedia.org/wiki/Sherlock_(software)), and in some cases (in the interest of it’s customers naturally), Apple will add [similar, built-in, functionality](http://en.wikipedia.org/wiki/Spotlight_(software) to its OS. Even if the original product is _superior_ this typically reduces the value proposition of these products to near zero (why pay for X when Y is free and backed by a large trusted company).
 
 By developing an email client for OS X and/or iOS, the developers behind Sparrow made the bet that their product would provide customers with enough benefit that they would be willing to pay for something that they could get for free. Not only pay, but pay an amount that would cover their costs and put profits in their coffers.
 
