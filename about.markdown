@@ -1,6 +1,6 @@
 ---
 layout: about
-title: I write software for *people*.
+title: I write software for people.
 ---
 
 My name is Justin Driscoll. I'm the lead software developer at [Makalu Interactive](http://makaluinc.com) where I design and develop [web and mobile software](http://github.com/jdriscoll). In my spare time I wrote an iOS notebook app called [OnePAD](http://www.onepadapp.com) and started a couple of moderately popular open source projects for Django.
