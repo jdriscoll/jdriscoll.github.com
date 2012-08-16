@@ -14,27 +14,29 @@ The solution is to register your observer within the block passed to either `UIM
 
 Here's a example:
 
-	// Here we define the block that will be executed whenever
-	// our document is ready to use:
-	void (^OnDocumentDidLoad)(BOOL) = ^(BOOL success) {
-        // Load some managed objects, reload your tableview, etc.
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(objectsDidChange:)
-                                                     name:NSManagedObjectContextObjectsDidChangeNotification
-                                                   object:self.document.managedObjectContext];
-    };
-    
-	// Now we check to see if our document exists, is closed, or is 
-    // already open and ready to work with:	
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[self.document.fileURL path]]) {
-        [self.document saveToURL:self.document.fileURL
-                forSaveOperation:UIDocumentSaveForCreating
-               completionHandler:OnDocumentDidLoad];
-    } else if (self.document.documentState == UIDocumentStateClosed) {
-        [self.document openWithCompletionHandler:OnDocumentDidLoad];
-    } else if (self.document.documentState == UIDocumentStateNormal) {
-        OnDocumentDidLoad(YES);
-    }
+{% highlight objc %}
+// Here we define the block that will be executed whenever
+// our document is ready to use:
+void (^OnDocumentDidLoad)(BOOL) = ^(BOOL success) {
+    // Load some managed objects, reload your tableview, etc.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(objectsDidChange:)
+                                                 name:NSManagedObjectContextObjectsDidChangeNotification
+                                               object:self.document.managedObjectContext];
+};
+
+// Now we check to see if our document exists, is closed, or is
+// already open and ready to work with:
+if (![[NSFileManager defaultManager] fileExistsAtPath:[self.document.fileURL path]]) {
+    [self.document saveToURL:self.document.fileURL
+            forSaveOperation:UIDocumentSaveForCreating
+           completionHandler:OnDocumentDidLoad];
+} else if (self.document.documentState == UIDocumentStateClosed) {
+    [self.document openWithCompletionHandler:OnDocumentDidLoad];
+} else if (self.document.documentState == UIDocumentStateNormal) {
+    OnDocumentDidLoad(YES);
+}
+{% endhighlight %}
 
 Cheers!
 
