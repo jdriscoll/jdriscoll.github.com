@@ -146,13 +146,15 @@ code {
   font: normal normal 87.5%/1em monospace, sans-serif;
 }
 
-pre code {
+.highlight {
   display: block;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
   margin: 0 0 1.875em;
   padding:10px;
   font: normal normal 87.5%/1.2em monospace, sans-serif;
   overflow: auto;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+       -o-border-radius: 5px;
+          border-radius: 5px;
 }
