@@ -22,10 +22,10 @@ The solution I settled on, and one that seems to work well, is to compare the de
 First we need to register for the keyboardDidChangeFrame event:
 
 {% highlight objc %}
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(keyboardDidChangeFrame:)
-                                                     name:UIKeyboardDidChangeFrameNotification
-                                                   object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidChangeFrame:)
+                                                 name:UIKeyboardDidChangeFrameNotification
+                                               object:nil];
 {% endhighlight %}
 
 Then we just need to pull out the destination frame of the keyboard, convert it's coordinates to our own, and look for an intersection:
