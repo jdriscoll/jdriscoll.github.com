@@ -1,4 +1,2 @@
 permalink: /blog/:year/:month/:title.html
-markdown: maruku
 pygments: true
-exclude: [Rakefile, README.markdown, public, design]
