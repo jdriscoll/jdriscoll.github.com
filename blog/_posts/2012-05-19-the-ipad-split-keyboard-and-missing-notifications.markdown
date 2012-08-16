@@ -21,7 +21,7 @@ The solution I settled on, and one that seems to work well, is to compare the de
 
 First we need to register for the correct event:
 
-{% post_url 2009-12-30-iphone-imap %}
+Test: {% post_url 2009-12-30-iphone-imap %}
 
 {% highlight objc %}
 [[NSNotificationCenter defaultCenter] addObserver:self
