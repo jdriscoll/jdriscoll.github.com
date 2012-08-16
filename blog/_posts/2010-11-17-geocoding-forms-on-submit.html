@@ -1,38 +1,38 @@
 ---
 layout: post
 title: Geocoding Forms on Submit with Javascript
-excerpt: The Google Maps API offers an exceptional geocoding service. It&#8217;s accurate, reliable and well documented. However, on shared hosting environments (such as Google&#8217;s own AppEngine), rate-limiting can become an issue quickly.
+excerpt: The Google Maps API offers an exceptional geocoding service. It’s accurate, reliable and well documented. However, on shared hosting environments (such as Google’s own AppEngine), rate-limiting can become an issue quickly.
 ---
-<p>The Google Maps API offers an exceptional <a href="http://code.google.com/apis/maps/documentation/geocoding/index.html" target="_blank">geocoding service</a>. It&#8217;s accurate, reliable and well documented. However, on shared hosting environments (such as Google&#8217;s own AppEngine), rate-limiting can become an issue quickly. Fortunately, using the <a href="http://code.google.com/apis/maps/documentation/javascript/" target="_blank">Javascript API</a> (and <a href="http://jquery.com/" target="_blank">jQuery</a>), we can offload this task to the client where the number of requests from the current IP address is unlikely to become an issue. When implemented in conjunction with server-side geocoding, we can deliver a reasonably robust solution that&#8217;s transparent to the user and gracefully degrades when Javascript is unavailable.</p>
-<p>Let&#8217;s start with a simple example. Let&#8217;s assume we need to capture our user&#8217;s names and addresses with the intention of plotting them on a map. Here&#8217;s a simple form:</p>
+<p>The Google Maps API offers an exceptional <a href="http://code.google.com/apis/maps/documentation/geocoding/index.html" target="_blank">geocoding service</a>. It’s accurate, reliable and well documented. However, on shared hosting environments (such as Google’s own AppEngine), rate-limiting can become an issue quickly. Fortunately, using the <a href="http://code.google.com/apis/maps/documentation/javascript/" target="_blank">Javascript API</a> (and <a href="http://jquery.com/" target="_blank">jQuery</a>), we can offload this task to the client where the number of requests from the current IP address is unlikely to become an issue. When implemented in conjunction with server-side geocoding, we can deliver a reasonably robust solution that’s transparent to the user and gracefully degrades when Javascript is unavailable.</p>
+<p>Let’s start with a simple example. Let’s assume we need to capture our user’s names and addresses with the intention of plotting them on a map. Here’s a simple form:</p>
 {% highlight javascript %}
-&lt;form method="post"&gt;
-    &lt;p&gt;&lt;label&gt;Name:&lt;/label&gt; &lt;input type="text" name="name"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;Street Address:&lt;/label&gt; &lt;input type="text" name="street_address"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;City:&lt;/label&gt; &lt;input type="text" name="state"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;State:&lt;/label&gt; &lt;input type="text" name="state"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;Postal Code:&lt;/label&gt; &lt;input type="text" name="postal_code"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;Country:&lt;/label&gt; &lt;input type="text" name="country"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;input type="submit" value="Submit"&gt;&lt;/p&gt;
-&lt;/form&gt;
+<form method="post">
+    <p><label>Name:</label> <input type="text" name="name"></p>
+    <p><label>Street Address:</label> <input type="text" name="street_address"></p>
+    <p><label>City:</label> <input type="text" name="state"></p>
+    <p><label>State:</label> <input type="text" name="state"></p>
+    <p><label>Postal Code:</label> <input type="text" name="postal_code"></p>
+    <p><label>Country:</label> <input type="text" name="country"></p>
+    <p><input type="submit" value="Submit"></p>
+</form>
 {% endhighlight %}
-<p>For the sake of argument, let&#8217;s also assume that when submitted, we&#8217;ve already implemented the logic necessary to geocode this address on the server before the data is saved. Now all is well and good until we discover that relying on server-side geocoding is not an option (and it wouldn&#8217;t it be really nice if our form could supply the latitude and longitude values?)</p>
+<p>For the sake of argument, let’s also assume that when submitted, we’ve already implemented the logic necessary to geocode this address on the server before the data is saved. Now all is well and good until we discover that relying on server-side geocoding is not an option (and it wouldn’t it be really nice if our form could supply the latitude and longitude values?)</p>
 <p>This is where the Javascript API can help. What if, when the user submits this form, their address was quietly geocoded behind the scenes and the result was sent along with the form? If the server sees that the address has already been geocoded it can happily save the values without having to attempt the request itself. If not, the server-side geocoding machinery can step in and attempt to complete the process.</p>
-<p>First things first. Let&#8217;s give assign our form a CSS class to identify it as a target for geocoding.</p>
-{% highlight javascript %}&lt;form class="geocode" method="post"&gt;
-    &lt;p&gt;&lt;label&gt;Name:&lt;/label&gt; &lt;input type="text" name="name"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;Street Address:&lt;/label&gt; &lt;input type="text" name="street_address"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;City:&lt;/label&gt; &lt;input type="text" name="city"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;State:&lt;/label&gt; &lt;input type="text" name="state"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;Postal Code:&lt;/label&gt; &lt;input type="text" name="postal_code"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;label&gt;Country:&lt;/label&gt; &lt;input type="text" name="country"&gt;&lt;/p&gt;
-    &lt;p&gt;&lt;input type="submit" value="Submit"&gt;&lt;/p&gt;
-&lt;/form&gt;{% endhighlight %}
+<p>First things first. Let’s give assign our form a CSS class to identify it as a target for geocoding.</p>
+{% highlight javascript %}<form class="geocode" method="post">
+    <p><label>Name:</label> <input type="text" name="name"></p>
+    <p><label>Street Address:</label> <input type="text" name="street_address"></p>
+    <p><label>City:</label> <input type="text" name="city"></p>
+    <p><label>State:</label> <input type="text" name="state"></p>
+    <p><label>Postal Code:</label> <input type="text" name="postal_code"></p>
+    <p><label>Country:</label> <input type="text" name="country"></p>
+    <p><input type="submit" value="Submit"></p>
+</form>{% endhighlight %}
 <p>Next we need to include jQuery and the Google Maps API Javascript library.</p>
-{% highlight javascript %}&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script src="http://maps.google.com/maps/api/js?sensor=false"&gt;&lt;/script&gt;{% endhighlight %}
+{% highlight javascript %}<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>{% endhighlight %}
 <p>Now we can write our script.</p>
-{% highlight javascript %}&lt;script&gt;
+{% highlight javascript %}<script>
 var geocoder;
 $(document).ready(function() {
     geocoder = new google.maps.Geocoder();
@@ -54,7 +54,7 @@ $(document).ready(function() {
                 if (status == google.maps.GeocoderStatus.OK) {
                     result = results[0].geometry.location;
                     var point = result.lat() + ', ' + result.lng();
-                    $(that).prepend('&lt;input type="hidden" name="point" value="' + point + '"&gt;');
+                    $(that).prepend('<input type="hidden" name="point" value="' + point + '">');
                 }
                 $(that).trigger('submit');
             }
@@ -63,10 +63,10 @@ $(document).ready(function() {
         }
     });
 });
-&lt;/script&gt;{% endhighlight %}
-<p>Let&#8217;s take a look at the important bits. First we declare a variable to hold our Geocoder object.</p>
+</script>{% endhighlight %}
+<p>Let’s take a look at the important bits. First we declare a variable to hold our Geocoder object.</p>
 {% highlight javascript %}var geocoder;{% endhighlight %}
-<p>After that, using jQuery, we assign a function to the submit event for all forms with the CSS class &#8220;Geocode&#8221;.</p>
+<p>After that, using jQuery, we assign a function to the submit event for all forms with the CSS class “Geocode”.</p>
 {% highlight javascript %}$('form.geocode').submit(function(e) {
     ...{% endhighlight %}
 <p>In the next line, we save the current object (this) to the local variable (that) so that we can access it from within our callback function later via a closure.</p>
@@ -84,12 +84,12 @@ $(addrFields).each(function(idx, name) {
 {% highlight javascript %}e.preventDefault();{% endhighlight %}
 <p>Next we remove the event handler from the form so that once geocoding is complete we can submit the form successfully without triggering our code again.</p>
 {% highlight javascript %}$(that).unbind('submit');{% endhighlight %}
-<p>This next bit is the callback function we&#8217;re going to pass to the Geocoder object that will be executed once our request is returned. This function first checks for a successful response, and if found, prepends a hidden field to our form containing the latitude and longitude information we received. Once the request has been returned, regardless of the result, we need to submit the form data by triggering the &#8220;submit&#8221; event on our form.</p>
+<p>This next bit is the callback function we’re going to pass to the Geocoder object that will be executed once our request is returned. This function first checks for a successful response, and if found, prepends a hidden field to our form containing the latitude and longitude information we received. Once the request has been returned, regardless of the result, we need to submit the form data by triggering the “submit” event on our form.</p>
 {% highlight javascript %}var onSuccess = function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
         result = results[0].geometry.location;
         var point = result.lat() + ', ' + result.lng();
-        $(that).prepend('&lt;input type="hidden" name="point" value="' + point + '"&gt;');
+        $(that).prepend('<input type="hidden" name="point" value="' + point + '">');
     }
     $(that).trigger('submit');
 }{% endhighlight %}
