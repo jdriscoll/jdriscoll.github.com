@@ -21,28 +21,29 @@ The solution I settled on, and one that seems to work well, is to compare the de
 
 First we need to register for the event:
 
+{% highlight objc %}
     [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(keyboardDidChangeFrame:)
                                                      name:UIKeyboardDidChangeFrameNotification
                                                    object:nil];
-                                                   
+{% endhighlight %}
+
 Then we just need to pull out the destination frame of the keyboard, convert it's coordinates to our own, and look for an intersection:
 
     - (void)keyboardDidChangeFrame:(NSNotification *)notification
     {
-        CGRect keyboardEndFrame;    
+        CGRect keyboardEndFrame;
         [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
         CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame fromView:nil];
-        
+
         if (CGRectIntersectsRect(keyboardFrame, self.view.frame)) {
             // Keyboard is visible
         } else {
             // Keyboard is hidden
-        }    
+        }
     }
 
 
 So if your app supports the iPad and relies on keyboard events, be sure to test it with the keyboard undocked. It's one of those problems that's far easier to fix than to discover.
 
 And if you're in the market for a unique notebook/journaling app for iPhone, iPad and iPod Touch, I hope you'll take a look at [OnePAD](http://www.onepadapp.com).
-    
