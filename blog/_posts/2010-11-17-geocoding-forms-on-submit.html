@@ -65,14 +65,14 @@ $(document).ready(function() {
 });
 </script>{% endhighlight %}
 <p>Let’s take a look at the important bits. First we declare a variable to hold our Geocoder object.</p>
-{% highlight html %}var geocoder;{% endhighlight %}
+{% highlight javascript %}var geocoder;{% endhighlight %}
 <p>After that, using jQuery, we assign a function to the submit event for all forms with the CSS class “Geocode”.</p>
-{% highlight html %}$('form.geocode').submit(function(e) {
+{% highlight javascript %}$('form.geocode').submit(function(e) {
     ...{% endhighlight %}
 <p>In the next line, we save the current object (this) to the local variable (that) so that we can access it from within our callback function later via a closure.</p>
-{% highlight html %}var that = this;{% endhighlight %}
+{% highlight javascript %}var that = this;{% endhighlight %}
 <p>The next few lines just build an array of address values (from our form) that we can assemble into a single string that the Geocoder will accept.</p>
-{% highlight html %}var addrArray = [];
+{% highlight javascript %}var addrArray = [];
 var addrFields = ['street_address', 'city', 'state', 'postal_code', 'country'];
 $(addrFields).each(function(idx, name) {
     var val = $(this).find('input[name="' + name + '"]').val();
@@ -81,11 +81,11 @@ $(addrFields).each(function(idx, name) {
     }
 });{% endhighlight %}
 <p>With that out of the way we first make sure we have something to geocode, and if so, call preventDefault to stop the form from being submitted.</p>
-{% highlight html %}e.preventDefault();{% endhighlight %}
+{% highlight javascript %}e.preventDefault();{% endhighlight %}
 <p>Next we remove the event handler from the form so that once geocoding is complete we can submit the form successfully without triggering our code again.</p>
-{% highlight html %}$(that).unbind('submit');{% endhighlight %}
+{% highlight javascript %}$(that).unbind('submit');{% endhighlight %}
 <p>This next bit is the callback function we’re going to pass to the Geocoder object that will be executed once our request is returned. This function first checks for a successful response, and if found, prepends a hidden field to our form containing the latitude and longitude information we received. Once the request has been returned, regardless of the result, we need to submit the form data by triggering the “submit” event on our form.</p>
-{% highlight html %}var onSuccess = function(results, status) {
+{% highlight javascript %}var onSuccess = function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
         result = results[0].geometry.location;
         var point = result.lat() + ', ' + result.lng();
@@ -94,7 +94,7 @@ $(addrFields).each(function(idx, name) {
     $(that).trigger('submit');
 }{% endhighlight %}
 <p>Lastly, we assemble the address values into a single, comma separated string and pass this value and our callback function to the geocode method of our geocoder object.</p>
-{% highlight html %}addr = addrArray.join(', ');
+{% highlight javascript %}addr = addrArray.join(', ');
 geocoder.geocode({'address': addr}, onSuccess);{% endhighlight %}
 <p>Now we can stop relying on the server to do all our geocoding. Of course, if our request fails (or the user has Javascript disabled), the server can still pick up the slack in most cases.</p>
 <p>If you have any questions, comments or corrections you can find me on <a href="http://twitter.com/jdriscoll" target="_blank">Twitter</a>.</p>
