@@ -1,2 +1,3 @@
 permalink: /blog/:year/:month/:title.html
 pygments: true
+exclude: ["Rakefile", "LICENSE.txt", "CNAME"]
