@@ -19,7 +19,7 @@ With the cause of the problem established, I had only to figure out how to repli
 
 The solution I settled on, and one that seems to work well, is to compare the destination frame from the keyboardDidChangeFrame event's notification to the view's frame and check for an intersection. If the keyboard is visible, it should intersect with the views frame right?
 
-First we need to register for the event:
+First we need to register for the keyboardDidChangeFrame event:
 
 {% highlight objc %}
     [[NSNotificationCenter defaultCenter] addObserver:self
