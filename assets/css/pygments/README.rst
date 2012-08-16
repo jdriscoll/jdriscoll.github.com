@@ -11,10 +11,10 @@ on the command line like so::
 I'm using a combination of Pygments and Markdown on a django project that has a model with the following save method::
 
     def save(self):
-        self.html = markdown(self.body, 'highlite')
+        self.html = markdown(self.body, 'highlight')
         super(Entry, self).save()
 
-That's why the CSS styles all have .highlite in front of them. You should change the .highlite to work with the style name that you use for your Pygments HTML output.
+That's why the CSS styles all have .highlight in front of them. You should change the .highlight to work with the style name that you use for your Pygments HTML output.
 
 .. _Pygments: http://pygments.org
 .. _styles: http://dev.pocoo.org/projects/pygments/browser/pygments/styles
