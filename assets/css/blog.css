@@ -6,7 +6,7 @@ body {
   color: #222;
   font: normal normal 400 100%/1.5em georgia, serif;
   }
-  
+
 #title-block {
   position: fixed;
   top: 0;
@@ -87,7 +87,7 @@ body {
 #post-meta dd {
   margin: 0 0 1em 0;
 }
-  
+
 #page {
   margin: 60px 0 0 340px ;
   max-width: 680px;
@@ -110,8 +110,8 @@ body {
     width: auto;
     height: 220px; }
   #post-meta {
-    display: none; }  
-  #page { 
+    display: none; }
+  #page {
     clear: both;
     margin: 0;
     padding: 20px 10px; }
@@ -148,13 +148,11 @@ code {
 
 pre code {
   display: block;
-  background:#333;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin: 0 0 1.875em;
   padding:10px;
   font: normal normal 87.5%/1.2em monospace, sans-serif;
-  color:#fff2b1;
   overflow: auto;
 }
