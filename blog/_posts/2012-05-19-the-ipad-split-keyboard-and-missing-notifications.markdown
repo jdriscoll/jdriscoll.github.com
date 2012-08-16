@@ -30,19 +30,20 @@ First we need to register for the keyboardDidChangeFrame event:
 
 Then we just need to pull out the destination frame of the keyboard, convert it's coordinates to our own, and look for an intersection:
 
-    - (void)keyboardDidChangeFrame:(NSNotification *)notification
-    {
-        CGRect keyboardEndFrame;
-        [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-        CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame fromView:nil];
+{% highlight objc %}
+- (void)keyboardDidChangeFrame:(NSNotification *)notification
+{
+    CGRect keyboardEndFrame;
+    [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    CGRect keyboardFrame = [self.view convertRect:keyboardEndFrame fromView:nil];
 
-        if (CGRectIntersectsRect(keyboardFrame, self.view.frame)) {
-            // Keyboard is visible
-        } else {
-            // Keyboard is hidden
-        }
+    if (CGRectIntersectsRect(keyboardFrame, self.view.frame)) {
+        // Keyboard is visible
+    } else {
+        // Keyboard is hidden
     }
-
+}
+{% endhighlight %}
 
 So if your app supports the iPad and relies on keyboard events, be sure to test it with the keyboard undocked. It's one of those problems that's far easier to fix than to discover.
 
