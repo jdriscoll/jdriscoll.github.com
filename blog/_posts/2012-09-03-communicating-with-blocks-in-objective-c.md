@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: Communicating with Blocks in Objective-C
+title: Communicating Between Objects with Blocks in Objective-C
 excerpt: I love blocks because blocks make Objective-C much more expressive. They can also reduce the amount of code you need to write, which reduces the amount of code you need to maintain and debug. Any developer who has ever worked in a higher level language like Ruby, Python or Javascript should feel right at home using blocks. Once they get past the awkward syntax at least.
 ---
 
@@ -23,82 +23,82 @@ Let’s assume we’ve got our Xcode project set up. You can even download [the 
 
 _Note: For this example I’m using the undocumented but public Yahoo! stock quote API the details of which are beyond this post but available elsewhere on the internet._
 
-    {% highlight objc %}
-    //  SPFPriceFetcher.h
+{% highlight objc %}
+//  SPFPriceFetcher.h
 
-    #import <Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
-    typedef void (^SPFQuoteRequestCompleteBlock) (BOOL wasSuccessful, NSDecimalNumber *price);
+typedef void (^SPFQuoteRequestCompleteBlock) (BOOL wasSuccessful, NSDecimalNumber *price);
 
-    @interface SPFPriceFetcher : NSObject
+@interface SPFPriceFetcher : NSObject
 
-    - (void)requestQuoteForSymbol:(NSString *)symbol
-                     withCallback:(SPFQuoteRequestCompleteBlock)callback;
+- (void)requestQuoteForSymbol:(NSString *)symbol
+                 withCallback:(SPFQuoteRequestCompleteBlock)callback;
 
-    @end
-    {% endhighlight %}
+@end
+{% endhighlight %}
 
 Very simple. Just one method that takes a stock symbol and a callback block. As you can see here I've used a typedef to define the callback. In many ways this is like defining an informal protocol. It's not necessary and you can define the block inline with the method but in this case I think it aids in readability and it can be helpful when defining a callback as we'll see later.
 
 Here's the implementation of our PriceFetcher class.
 
-    {% highlight objc %}
-    //  SPFPriceFetcher.m
+{% highlight objc %}
+//  SPFPriceFetcher.m
 
-    #import "SPFPriceFetcher.h"
-    #import "JCDHTTPConnection.h"
+#import "SPFPriceFetcher.h"
+#import "JCDHTTPConnection.h"
 
-    // Yahoo stock quote API
-    // Example: http://download.finance.yahoo.com/d/quotes.csv?s=GOOG&f=l1
-    #define kYahooStockQuoteAPIURL @"http://download.finance.yahoo.com/d/quotes.csv"
-    #define kYahooStockQuoteAPIFormatString @"l1"
+// Yahoo stock quote API
+// Example: http://download.finance.yahoo.com/d/quotes.csv?s=GOOG&f=l1
+#define kYahooStockQuoteAPIURL @"http://download.finance.yahoo.com/d/quotes.csv"
+#define kYahooStockQuoteAPIFormatString @"l1"
 
-    @implementation SPFPriceFetcher
+@implementation SPFPriceFetcher
 
-    - (void)requestQuoteForSymbol:(NSString *)symbol withCallback:(SPFQuoteRequestCompleteBlock)callback
-    {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?s=%@&f=%@",
-                                           kYahooStockQuoteAPIURL,
-                                           symbol,
-                                           kYahooStockQuoteAPIFormatString]];
+- (void)requestQuoteForSymbol:(NSString *)symbol withCallback:(SPFQuoteRequestCompleteBlock)callback
+{
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?s=%@&f=%@",
+                                       kYahooStockQuoteAPIURL,
+                                       symbol,
+                                       kYahooStockQuoteAPIFormatString]];
 
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
 
-        JCDHTTPConnection *connection = [[JCDHTTPConnection alloc] initWithRequest:request];
-        [connection executeRequestOnSuccess:
-         ^(NSHTTPURLResponse *response, NSString *bodyString) {
-             if (response.statusCode == 200) {
-                 NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:bodyString];
-                 callback(YES, price);
-             } else {
-                 callback(NO, nil);
-             }
-         } failure:^(NSHTTPURLResponse *response, NSString *bodyString, NSError *error) {
+    JCDHTTPConnection *connection = [[JCDHTTPConnection alloc] initWithRequest:request];
+    [connection executeRequestOnSuccess:
+     ^(NSHTTPURLResponse *response, NSString *bodyString) {
+         if (response.statusCode == 200) {
+             NSDecimalNumber *price = [NSDecimalNumber decimalNumberWithString:bodyString];
+             callback(YES, price);
+         } else {
              callback(NO, nil);
-         } didSendData:nil];
-    }
+         }
+     } failure:^(NSHTTPURLResponse *response, NSString *bodyString, NSError *error) {
+         callback(NO, nil);
+     } didSendData:nil];
+}
 
-    @end
-    {% endhighlight %}
+@end
+{% endhighlight %}
 
 You may notice that I'm keeping this block love-in going strong here by using my [JCDHTTPConnection](http://adevelopingstory.com/blog/2011/11/jcdhttpconnection.html) class which itself provides a block-based API for making HTTP requests using NSURLConnection. Calling blocks from within other blocks can be very powerful and allows you to chain callbacks which is also neat. I'm not going to go into all of this but basically we're just making a simple GET request to the API url and passing in the stock symbol as a parameter. When our request completes we check to make sure it was successful and execute the callback block we've been passed with a BOOL indicating whether we able to fetch the price and, if so, the price we fetched.
 
 With our API proxy in place we can now look at how our application code might use this class. Our app's only view controller (SPFViewController) has a single action that's connected to the "Get Price" button in our UI. This action defines a callback block and then uses an instance of the SPFPriceFetcher class (that we lazily instantiate) to make the actual request. The callback that we pass in only needs to check if we were successful and update the UI accordingly.
 
-    {% highlight objc %}
-    - (IBAction)getPrice:(id)sender {
-        SPFQuoteRequestCompleteBlock callback = ^(BOOL wasSuccessful, NSDecimalNumber *price) {
-            if (wasSuccessful) {
-                self.priceLabel.text = [NSString stringWithFormat:@"Latest price: $%@", [price stringValue]];
-            } else {
-                self.priceLabel.text = @"Unable to fetch price. Try again.";
-            }
-        };
+{% highlight objc %}
+- (IBAction)getPrice:(id)sender {
+    SPFQuoteRequestCompleteBlock callback = ^(BOOL wasSuccessful, NSDecimalNumber *price) {
+        if (wasSuccessful) {
+            self.priceLabel.text = [NSString stringWithFormat:@"Latest price: $%@", [price stringValue]];
+        } else {
+            self.priceLabel.text = @"Unable to fetch price. Try again.";
+        }
+    };
 
-        [self.quoter requestQuoteForSymbol:self.stockSymbolTextField.text
-                              withCallback:callback];
-    }
-    {% endhighlight %}
+    [self.quoter requestQuoteForSymbol:self.stockSymbolTextField.text
+                          withCallback:callback];
+}
+{% endhighlight %}
 
 With our application structured in this way we can easily change the internal workings of our PriceFetcher class without having to modify any other code. And because we've used blocks to implement our API we have the flexiblity to define our callbacks inline, ahead of time, or even pass them around or store them in instance variables.
 
