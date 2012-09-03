@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: Communicating With Blocks in Objective-C
+title: Communicating with Blocks in Objective-C
 excerpt: I love blocks because blocks make Objective-C much more expressive. They can also reduce the amount of code you need to write, which reduces the amount of code you need to maintain and debug. Any developer who has ever worked in a higher level language like Ruby, Python or Javascript should feel right at home using blocks. Once they get past the awkward syntax at least.
 ---
 
@@ -105,3 +105,5 @@ With our application structured in this way we can easily change the internal wo
 If you haven't already you can [download the complete project from Github](http://github.com/jdriscoll/ads-sample-stock-price-fetcher).
 
 I can only imagine we'll be seeing more Apple APIs that use blocks in the future. Delegate-based APIs like NSURLConnection are clumsy and begging for a more modern interface. As an exercise, try rewriting our PriceFetcher class using NSURLConnection without JCDHTTPConnection and see how much code it takes (sure you can cheat by using stringWithContentsOfURL but what if we need to make a POST request?). Blocks are a great addition to the Objective C language and they can help us all write better, and less, code.
+
+This post was been reposted from my personal blog at [A Developing Story](http://adevelopingstory.com)
