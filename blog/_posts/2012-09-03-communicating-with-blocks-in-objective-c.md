@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: Communicating With Blocks in Objective C
+title: Communicating With Blocks in Objective-C
 excerpt: I love blocks because blocks make Objective-C much more expressive. They can also reduce the amount of code you need to write, which reduces the amount of code you need to maintain and debug. Any developer who has ever worked in a higher level language like Ruby, Python or Javascript should feel right at home using blocks. Once they get past the awkward syntax at least.
 ---
 
@@ -25,16 +25,16 @@ _Note: For this example I’m using the undocumented but public Yahoo! stock quo
 
     {% highlight objc %}
     //  SPFPriceFetcher.h
-    
+
     #import <Foundation/Foundation.h>
-    
+
     typedef void (^SPFQuoteRequestCompleteBlock) (BOOL wasSuccessful, NSDecimalNumber *price);
-    
+
     @interface SPFPriceFetcher : NSObject
-    
+
     - (void)requestQuoteForSymbol:(NSString *)symbol
                      withCallback:(SPFQuoteRequestCompleteBlock)callback;
-    
+
     @end
     {% endhighlight %}
 
@@ -44,26 +44,26 @@ Here's the implementation of our PriceFetcher class.
 
     {% highlight objc %}
     //  SPFPriceFetcher.m
-    
+
     #import "SPFPriceFetcher.h"
     #import "JCDHTTPConnection.h"
-    
+
     // Yahoo stock quote API
     // Example: http://download.finance.yahoo.com/d/quotes.csv?s=GOOG&f=l1
     #define kYahooStockQuoteAPIURL @"http://download.finance.yahoo.com/d/quotes.csv"
     #define kYahooStockQuoteAPIFormatString @"l1"
-    
+
     @implementation SPFPriceFetcher
-    
+
     - (void)requestQuoteForSymbol:(NSString *)symbol withCallback:(SPFQuoteRequestCompleteBlock)callback
     {
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@?s=%@&f=%@",
                                            kYahooStockQuoteAPIURL,
                                            symbol,
                                            kYahooStockQuoteAPIFormatString]];
-    
+
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
+
         JCDHTTPConnection *connection = [[JCDHTTPConnection alloc] initWithRequest:request];
         [connection executeRequestOnSuccess:
          ^(NSHTTPURLResponse *response, NSString *bodyString) {
@@ -77,7 +77,7 @@ Here's the implementation of our PriceFetcher class.
              callback(NO, nil);
          } didSendData:nil];
     }
-    
+
     @end
     {% endhighlight %}
 
@@ -94,7 +94,7 @@ With our API proxy in place we can now look at how our application code might us
                 self.priceLabel.text = @"Unable to fetch price. Try again.";
             }
         };
-    
+
         [self.quoter requestQuoteForSymbol:self.stockSymbolTextField.text
                               withCallback:callback];
     }
