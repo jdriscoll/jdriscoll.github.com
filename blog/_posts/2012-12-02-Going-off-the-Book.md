@@ -11,7 +11,7 @@ We open with the platform, or platforms, on which our software will run. This co
 
 _Pawn to iOS >= 5.1_
  
-We then often build upon this initial move by choosing a language. Usually a higer level language that saves us time and makes us more productive. Our options for this next move are somewhat limited by our choice of platform. Still, while Javascript rules on the client side there are a huge number of language options for developing web applications. Even on iOS there are [alternatives to Objective-C](http://www.rubymotion.com/) that we might consider.
+We then often build upon this initial move by choosing a language. Like in chess, our options for the next move are limited by the choices we've already made. But while Javascript rules on the client side there are a huge number of language options for developing web applications. Even on iOS there are [alternatives to Objective-C](http://www.rubymotion.com/) that we might consider.
 
 _Bishop to Objective-C 2.0_
 
@@ -19,10 +19,10 @@ We could go “off book” here and write our application. And while this would 
 
 _Knight to Cocoa Touch_
 
-At this point our framework may provide us with the option of using pre-made templates or scaffolding to get started with. [Xcode](https://developer.apple.com/xcode/) comes with templates for several application types and web frameworks such as [Ruby on Rails](http://rubyonrails.org/) or [Django](https://www.djangoproject.com/) often come with a way to automatically generate a basic project structure to build upon.
+At this point our framework may provide us with the option of using pre-made templates or scaffolding to get started with. [Xcode](https://developer.apple.com/xcode/) comes with templates for numerous application types and web frameworks such as [Ruby on Rails](http://rubyonrails.org/) or [Django](https://www.djangoproject.com/) often come with a way to automatically generate a basic project structure to build upon.
 
 _Queen to Single View Application template_
 
 This is our opening. We have made our own choices but they are not unique to us. More than likely many others have made the exact same moves up to this point. For better or worse. It’s only once we go “off book” that things get exciting. From this point on the roads aren’t paved and we have only our own experience and creativity to rely on. Like chess, this is where the game becomes unpredictable and where, more importantly, it gets fun.
 
-How many developers are, at this very moment, staring at a brand new Xcode project? How many have just generated a new Ruby on Rails application? Many of these projects will never see the light of day, but any one of them could [change the world](http://en.wikipedia.org/wiki/WorldWideWeb). This is what keeps me excited about software development. The joy of creating something no one has ever seen before. The challenge of solving new problems. The exhilaration of going “off book”.
+How many developers are, at this very moment, staring at a brand new Xcode project? How many have just generated a new Ruby on Rails application? Many of these projects will never see the light of day but any one of them could [change the world](http://en.wikipedia.org/wiki/WorldWideWeb). This is what keeps me excited about software development. The joy of creating something no one has ever seen before. The challenge of solving new problems. The thrill of going “off book”.
