@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Going off the Book
 excerpt: There’s a moment in chess when a game deviates from a well known sequences of moves each player has memorized. They call this going "off book" and it's an interesting metaphor for modern software development.
 ---
