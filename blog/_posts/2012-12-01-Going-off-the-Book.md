@@ -2,7 +2,7 @@
 layout: post
 published: false
 title: Going off the Book
-excerpt: There’s a moment in chess when a game deviates (if it ever does) from a well known sequences of moves each player has memorized. They call this going "off book" and it's an interesting metaphor for modern software development.
+excerpt: There’s a moment in chess when a game deviates from a well known sequences of moves each player has memorized. They call this going "off book" and it's an interesting metaphor for modern software development.
 ---
 
 In chess, there’s a moment when a game deviates (if it ever does) from a well known sequences of moves each player has memorized. They call this going "off book". I first heard of this concept while listening to an [episode of RadioLab](http://www.radiolab.org/2011/aug/23/)  and it struck me as an apt metaphor for modern software development. In programming we have a book of moves to choose from too. Variations of common choices that we all make over and over.
