@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://adevelopingstory.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msvalidate.01" content="C298909388235EF73CC90AC8AB5A92D9">
+
+    <meta name="author" content="Justin Driscoll">
+    <meta name="description" content="The software development and technology blog of Justin Driscoll, lead software developer at Makalu Interactive and founder of Retrobit, LLC.">
+
+    <title>A Developing Story</title>
+
+    <link href="http://feeds.feedburner.com/adevstory" rel="alternate" title="A Developing Story" type="application/atom+xml">
+    <link rel="shortcut icon" type="image/x-icon" href="http://adevelopingstory.com/assets/favicon.ico">
+    <link rel="stylesheet" href="assets/css/blog.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/highlight.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+    <script type="text/javascript" src="//use.typekit.net/mug2puk.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  </head>
+  <body>
+
+    <header class="site-title">
+      <h1><a href="/">A Developing Story</a></h1>
+      <p class="byline">by <a href="/about">Justin Driscoll</a></p>
+    </header>
+    <section id="page">
+
+  <article class="latest-post">
+    <header>
+      <h2>
+        <a href="http://adevelopingstory.com/blog/2012/09/communicating-with-blocks-in-objective-c.html" title="Communicating with Blocks in Objective-C">
+          Communicating with Blocks in Objective-C
+        </a>
+      </h2>
+      <h3 class="post-date">September 03, 2012</h3>
+    </header>
+<p>Let’s talk about <a href='http://developer.apple.com/library/ios/#featuredarticles/Short_Practical_Guide_Blocks/_index.html'>blocks</a>.</p>
+
+<p>I love blocks because blocks make Objective-C much more expressive. They can also reduce the amount of code you need to write, which reduces the amount of code you need to maintain and debug. Any developer who has ever worked in a higher level language like Ruby, Python or Javascript should feel right at home using blocks. Once they get past the awkward syntax at least.</p>
+
+<p>One area where I’ve personally seen a lot of benefit from using blocks is in setting up communication between separate systems. This could be communication between an app and a web service or between separate concerns within a single app. Communication with blocks helps maintain a high level of encapsulation while keeping your code readable and concise.</p>
+
+<p>Traditionally, we might set up communication between two objects using a <a href='http://developer.apple.com/library/ios/#documentation/General/Conceptual/CocoaEncyclopedia/DelegatesandDataSources/DelegatesandDataSources.html'>delegate</a>. Delegates are used througout Cocoa and Cocoa Touch to great effect and they’re virtually impossible to avoid. In iOS, the application delegate is one of the first objects we interact with. Delegates work well when two objects need to have an ongoing or broad relationship and the UITableView delegate is a great example of this.</p>
+
+<p>In other cases we might just want to be able to pass a little information around between objects without them necessarily knowing that much about each other. While we can get by defining a delegate protocol, implementing the delegate methods on our object and assigning the delegate to a property, using blocks we can accomplish the same thing while avoiding formal protocols and keeping the related code closer together.</p>
+
+<p>Let’s say we want to build an app that fetches and displays stock quotes. Because we’re good little programmers we’ve decided to separate, or encapsuate, the logic that actually communicates with whatever web service we’re using and provides a common interface or API for the rest of our app to use.</p>
+
+<p>If you’re new to this stuff (or if you use PHP) you might wonder why we would do this. Well for one, in the future we might want, or need, to switch the service that provides our stock quotes. If we wrote directly to the original service’s API in our app and the new service is not compatible with the original one we would need to update our application in any number of different places to make this change. But with the service API safely abstracted away behind an internal API of our own devising we would need only to modify one part of the app. This is called <a href='http://en.wikipedia.org/wiki/Separation_of_concerns'>Separation of Concerns</a>, and it’s a wonderful thing.</p>
+
+<p>Let’s assume we’ve got our Xcode project set up. You can even download <a href='http://github.com/jdriscoll/ads-sample-stock-price-fetcher'>the complete project from Github</a> if you want. Why don’t we first define the class that will handle all communication with the stock API we’ll be using. This class will provide the internal API that our application will interact with.</p>
+
+<p><em>Note: For this example I’m using the undocumented but public Yahoo! stock quote API the details of which are beyond this post but available elsewhere on the internet.</em></p>
+<div class='highlight'><pre><code class='objc'><span class='cp'>//  SPFPriceFetcher.h</span>
+
+<span class='cp'>#import &lt;Foundation/Foundation.h&gt;</span>
+
+<span class='k'>typedef</span> <span class='kt'>void</span> <span class='p'>(</span><span class='o'>^</span><span class='n'>SPFQuoteRequestCompleteBlock</span><span class='p'>)</span> <span class='p'>(</span><span class='kt'>BOOL</span> <span class='n'>wasSuccessful</span><span class='p'>,</span> <span class='n'>NSDecimalNumber</span> <span class='o'>*</span><span class='n'>price</span><span class='p'>);</span>
+
+<span class='k'>@interface</span> <span class='nc'>SPFPriceFetcher</span> : <span class='nc'>NSObject</span>
+
+<span class='k'>-</span> <span class='p'>(</span><span class='kt'>void</span><span class='p'>)</span><span class='nf'>requestQuoteForSymbol:</span><span class='p'>(</span><span class='n'>NSString</span> <span class='o'>*</span><span class='p'>)</span><span class='nv'>symbol</span>
+                 <span class='nf'>withCallback:</span><span class='p'>(</span><span class='n'>SPFQuoteRequestCompleteBlock</span><span class='p'>)</span><span class='nv'>callback</span><span class='p'>;</span>
+
+<span class='k'>@end</span>
+</code></pre>
+</div>
+<p>Very simple. Just one method that takes a stock symbol and a callback block. As you can see here I&#8217;ve used a typedef to define the callback. In many ways this is like defining an informal protocol. It&#8217;s not necessary and you can define the block inline with the method but in this case I think it aids in readability and it can be helpful when defining a callback as we&#8217;ll see later.</p>
+
+<p>Here&#8217;s the implementation of our PriceFetcher class.</p>
+<div class='highlight'><pre><code class='objc'><span class='cp'>//  SPFPriceFetcher.m</span>
+
+<span class='cp'>#import &quot;SPFPriceFetcher.h&quot;</span>
+<span class='cp'>#import &quot;JCDHTTPConnection.h&quot;</span>
+
+  <span class='cp'>// Yahoo stock quote API</span>
+    <span class='cp'>// Example: http://download.finance.yahoo.com/d/quotes.csv?s=GOOG&amp;f=l1</span>
+    <span class='cp'>#define kYahooStockQuoteAPIURL @&quot;http:</span><span class='c1'>//download.finance.yahoo.com/d/quotes.csv&quot;</span>
+    <span class='cp'>#define kYahooStockQuoteAPIFormatString @&quot;l1&quot;</span>
+
+    <span class='k'>@implementation</span> <span class='nc'>SPFPriceFetcher</span>
+
+  <span class='k'>-</span> <span class='p'>(</span><span class='kt'>void</span><span class='p'>)</span><span class='nf'>requestQuoteForSymbol:</span><span class='p'>(</span><span class='n'>NSString</span> <span class='o'>*</span><span class='p'>)</span><span class='nv'>symbol</span> <span class='nf'>withCallback:</span><span class='p'>(</span><span class='n'>SPFQuoteRequestCompleteBlock</span><span class='p'>)</span><span class='nv'>callback</span>
+    <span class='p'>{</span>
+        <span class='n'>NSURL</span> <span class='o'>*</span><span class='n'>url</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>NSURL</span> <span class='nl'>URLWithString:</span><span class='p'>[</span><span class='n'>NSString</span> <span class='nl'>stringWithFormat:</span><span class='s'>@&quot;%@?s=%@&amp;f=%@&quot;</span><span class='p'>,</span>
+                                           <span class='n'>kYahooStockQuoteAPIURL</span><span class='p'>,</span>
+                                       <span class='n'>symbol</span><span class='p'>,</span>
+                                           <span class='n'>kYahooStockQuoteAPIFormatString</span><span class='p'>]];</span>
+
+        <span class='n'>NSURLRequest</span> <span class='o'>*</span><span class='n'>request</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>NSURLRequest</span> <span class='nl'>requestWithURL:</span><span class='n'>url</span><span class='p'>];</span>
+
+    <span class='n'>JCDHTTPConnection</span> <span class='o'>*</span><span class='n'>connection</span> <span class='o'>=</span> <span class='p'>[[</span><span class='n'>JCDHTTPConnection</span> <span class='n'>alloc</span><span class='p'>]</span> <span class='nl'>initWithRequest:</span><span class='n'>request</span><span class='p'>];</span>
+        <span class='p'>[</span><span class='n'>connection</span> <span class='nl'>executeRequestOnSuccess:</span>
+         <span class='o'>^</span><span class='p'>(</span><span class='n'>NSHTTPURLResponse</span> <span class='o'>*</span><span class='n'>response</span><span class='p'>,</span> <span class='n'>NSString</span> <span class='o'>*</span><span class='n'>bodyString</span><span class='p'>)</span> <span class='p'>{</span>
+             <span class='k'>if</span> <span class='p'>(</span><span class='n'>response</span><span class='p'>.</span><span class='n'>statusCode</span> <span class='o'>==</span> <span class='mi'>200</span><span class='p'>)</span> <span class='p'>{</span>
+                 <span class='n'>NSDecimalNumber</span> <span class='o'>*</span><span class='n'>price</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>NSDecimalNumber</span> <span class='nl'>decimalNumberWithString:</span><span class='n'>bodyString</span><span class='p'>];</span>
+                 <span class='n'>callback</span><span class='p'>(</span><span class='n'>YES</span><span class='p'>,</span> <span class='n'>price</span><span class='p'>);</span>
+             <span class='p'>}</span> <span class='k'>else</span> <span class='p'>{</span>
+                 <span class='n'>callback</span><span class='p'>(</span><span class='n'>NO</span><span class='p'>,</span> <span class='nb'>nil</span><span class='p'>);</span>
+             <span class='p'>}</span>
+         <span class='p'>}</span> <span class='nl'>failure:</span><span class='o'>^</span><span class='p'>(</span><span class='n'>NSHTTPURLResponse</span> <span class='o'>*</span><span class='n'>response</span><span class='p'>,</span> <span class='n'>NSString</span> <span class='o'>*</span><span class='n'>bodyString</span><span class='p'>,</span> <span class='n'>NSError</span> <span class='o'>*</span><span class='n'>error</span><span class='p'>)</span> <span class='p'>{</span>
+         <span class='n'>callback</span><span class='p'>(</span><span class='n'>NO</span><span class='p'>,</span> <span class='nb'>nil</span><span class='p'>);</span>
+     <span class='p'>}</span> <span class='nl'>didSendData:</span><span class='nb'>nil</span><span class='p'>];</span>
+<span class='p'>}</span>
+
+<span class='k'>@end</span>
+</code></pre>
+</div>
+<p>You may notice that I&#8217;m keeping this block love-in going strong here by using my <a href='http://adevelopingstory.com/blog/2011/11/jcdhttpconnection.html'>JCDHTTPConnection</a> class which itself provides a block-based API for making HTTP requests using NSURLConnection. Calling blocks from within other blocks can be very powerful and allows you to chain callbacks which is also neat. I&#8217;m not going to go into all of this but basically we&#8217;re just making a simple GET request to the API url and passing in the stock symbol as a parameter. When our request completes we check to make sure it was successful and execute the callback block we&#8217;ve been passed with a BOOL indicating whether we able to fetch the price and, if so, the price we fetched.</p>
+
+<p>With our API proxy in place we can now look at how our application code might use this class. Our app&#8217;s only view controller (SPFViewController) has a single action that&#8217;s connected to the &#8220;Get Price&#8221; button in our UI. This action defines a callback block and then uses an instance of the SPFPriceFetcher class (that we lazily instantiate) to make the actual request. The callback that we pass in only needs to check if we were successful and update the UI accordingly.</p>
+<div class='highlight'><pre><code class='objc'><span class='k'>-</span> <span class='p'>(</span><span class='kt'>IBAction</span><span class='p'>)</span><span class='nf'>getPrice:</span><span class='p'>(</span><span class='kt'>id</span><span class='p'>)</span><span class='nv'>sender</span> <span class='p'>{</span>
+    <span class='n'>SPFQuoteRequestCompleteBlock</span> <span class='n'>callback</span> <span class='o'>=</span> <span class='o'>^</span><span class='p'>(</span><span class='kt'>BOOL</span> <span class='n'>wasSuccessful</span><span class='p'>,</span> <span class='n'>NSDecimalNumber</span> <span class='o'>*</span><span class='n'>price</span><span class='p'>)</span> <span class='p'>{</span>
+        <span class='k'>if</span> <span class='p'>(</span><span class='n'>wasSuccessful</span><span class='p'>)</span> <span class='p'>{</span>
+            <span class='n'>self</span><span class='p'>.</span><span class='n'>priceLabel</span><span class='p'>.</span><span class='n'>text</span> <span class='o'>=</span> <span class='p'>[</span><span class='n'>NSString</span> <span class='nl'>stringWithFormat:</span><span class='s'>@&quot;Latest price: $%@&quot;</span><span class='p'>,</span> <span class='p'>[</span><span class='n'>price</span> <span class='n'>stringValue</span><span class='p'>]];</span>
+        <span class='p'>}</span> <span class='k'>else</span> <span class='p'>{</span>
+            <span class='n'>self</span><span class='p'>.</span><span class='n'>priceLabel</span><span class='p'>.</span><span class='n'>text</span> <span class='o'>=</span> <span class='s'>@&quot;Unable to fetch price. Try again.&quot;</span><span class='p'>;</span>
+        <span class='p'>}</span>
+    <span class='p'>};</span>
+
+    <span class='p'>[</span><span class='n'>self</span><span class='p'>.</span><span class='n'>quoter</span> <span class='nl'>requestQuoteForSymbol:</span><span class='n'>self</span><span class='p'>.</span><span class='n'>stockSymbolTextField</span><span class='p'>.</span><span class='n'>text</span>
+                          <span class='nl'>withCallback:</span><span class='n'>callback</span><span class='p'>];</span>
+<span class='p'>}</span>
+</code></pre>
+</div>
+<p>With our application structured in this way we can easily change the internal workings of our PriceFetcher class without having to modify any other code. And because we&#8217;ve used blocks to implement our API we have the flexiblity to define our callbacks inline, ahead of time, or even pass them around or store them in instance variables.</p>
+
+<p>If you haven&#8217;t already you can <a href='http://github.com/jdriscoll/ads-sample-stock-price-fetcher'>download the complete project from Github</a>.</p>
+
+<p>I can only imagine we&#8217;ll be seeing more Apple APIs that use blocks in the future. Delegate-based APIs like NSURLConnection are clumsy and begging for a more modern interface. As an exercise, try rewriting our PriceFetcher class using NSURLConnection without JCDHTTPConnection and see how much code it takes (sure you can cheat by using stringWithContentsOfURL but what if we need to make a POST request?). Blocks are a great addition to the Objective C language and they can help us all write better, and less, code.</p>
+    <footer>
+      <p><a href="http://adevelopingstory.com/blog/2012/09/communicating-with-blocks-in-objective-c.html">View entire post...</a></p>
+    </footer>
+  </article>
+
+  <article>
+    <header>
+      <h2>
+        <a href="http://adevelopingstory.com/blog/2012/08/onepad-version-1-3-available-now.html" title="OnePAD Version 1.3 Available Now">
+          OnePAD Version 1.3 Available Now
+        </a>
+      </h2>
+      <h3 class="post-date">August 11, 2012</h3>
+    </header>
+    <p>OnePAD version 1.3 has been approved for sale and brings bug fixes, better browsing and a brand new icon.</p>
+    <footer>
+      <h3><a href="http://adevelopingstory.com/blog/2012/08/onepad-version-1-3-available-now.html">View entire post...</a></h3>
+    </footer>
+  </article>
+
+  <article>
+    <header>
+      <em class="post-date">July 01, 2012</em>
+      <h2>
+        <a href="http://adevelopingstory.com/blog/2012/07/lights-camera-onepad.html" title="Lights, Camera, OnePAD">
+          Lights, Camera, OnePAD
+        </a>
+      </h2>
+    </header>
+    <div class="excerpt">
+      <p>I finally got around to putting together a quick screencast for OnePAD, my iOS daily notebook app.</p>
+      <p><a href="http://adevelopingstory.com/blog/2012/07/lights-camera-onepad.html">View entire post...</a></p>
+    </div>
+  </article>
+
+</section>
+
+    <footer></footer>
+
+
+</body></html>
