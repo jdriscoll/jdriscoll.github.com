@@ -21,6 +21,8 @@ Somewhere in-between the pros and cons lies the actual feel of the keyboard. The
 
 In the end the Logitech K760 is a mixed bag of exceptional ideas, good execution and middling construction. I would likely pay twice the price for a keyboard with the same features and a superior build quality. For now, while the solar charging and ability to connect to multiple devices is keeping it on my desk, I occasionally catch myself eyeing my old Apple wireless keyboard. Here’s hoping either Logitech realizes there’s a market for premium peripherals or Apple steals the best aspects of this device for their next model.
 
+You can buy the [Logitech K760](http://www.amazon.com/gp/product/B007VL8Y2C/ref=as_li_ss_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B007VL8Y2C&linkCode=as2&tag=justidrisc-20) from Amazon (and I get a little kick-back if you use this link).
+
 
 
 
