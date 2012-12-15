@@ -1,6 +1,6 @@
 ---
 layout: post
-published: false
+published: true
 title: Logitech Wireless Solar Keyboard K760 Review
 excerpt: The Logitech K760 wireless solar keyboard is a mostly likable keyboard with some very desirable features.
 ---
