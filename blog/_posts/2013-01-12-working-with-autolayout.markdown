@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-title: Working With Auto Layout
+title: Working With Auto Layout on iOS
 excerpt: After spending the last few months working on a new app using Cocoa Auto Layout for iOS I thought I'd share some things I learned along the way. 
 ---
 
