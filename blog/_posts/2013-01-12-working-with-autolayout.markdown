@@ -29,7 +29,7 @@ Unfortunately there's no debugger for Auto Layout on iOS yet. If something is go
 
 {% highlight objc %}
 
-    po [[UIWindow keyWindow] _autolayoutTrace]
+po [[UIWindow keyWindow] _autolayoutTrace]
 
 {% endhighlight %}
 
@@ -39,11 +39,11 @@ Switching to Auto Layout also means animating views by changing their layout con
 
 {% highlight objc %}
 
-    self.myViewsHeightConstraint.constant = 42.0;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        [self.view layoutIfNeeded];
-    }]
+self.myViewsHeightConstraint.constant = 42.0;
+
+[UIView animateWithDuration:0.3 animations:^{
+    [self.view layoutIfNeeded];
+}]
 
 {% endhighlight %}
 
