@@ -7,7 +7,7 @@ excerpt: After spending the last few months working on a new app using Cocoa Aut
 
 After spending a large percentage of my time over the last few months building a new app using [Cocoa Auto Layout for iOS](http://developer.apple.com/library/ios/#documentation/UserExperience/Conceptual/AutolayoutPG/Articles/Introduction.html) I thought I'd share some things I learned along the way. Auto Layout is pretty new, and I don't claim to be an expert, but I personally found the following discoveries useful.
 
-## Pay Attention to Interface Builder (There's a Method to It's Madness)
+## Pay Attention to Interface Builder (There's a Method to Its Madness)
 
 Probably the greatest increase in my ability to use Auto Layout efficiently came from learning to predict, even poorly, what constraint changes Interface Builder would make when modifying a storyboard. The constraints Interface Builder generates are governed by rules and those rules can seem directly intended to spite you if you're not at all familiar with them. I've learned to view this as the software having "opinions" that while I may or may not agree with them, are valid in their own way. For example, align the bottom of one view to the bottom of  another's and Interface Builder will assume you want the bottom of those two views aligned come hell or high water. Even if you may _actually_ want them to resize independently when the layout is presented on different sized screens. By noticing these "opinions" you can quickly find the potentially offending constraints and fix them before they bite you in the ass.
 
