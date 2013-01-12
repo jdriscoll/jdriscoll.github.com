@@ -21,7 +21,7 @@ Even with a complex UI, Auto Layout can allow you to use a single storyboard for
 
 ## Remember 'translatesAutoresizingMaskIntoConstraints' For Views Created In Code
 
-When adding a view to an existing hierarchy in code it's good to remember that by default the runtime will translate the standard autoresizing mask into a set of constraints. This may be fine if that's what you want or the view is never asked to resize in response to changes to it's superviews frame. Personally, this has been an issue enough times that I almost always set translatesAutoresizingMaskIntoConstraints to NO for views I initialize in code and replace the autoresize mask with an explicit set of constraints. Taking the time to learn the [ASCII-art formatting style](http://developer.apple.com/library/ios/#documentation/UserExperience/Conceptual/AutolayoutPG/Articles/formatLanguage.html) helps _a lot_ with this.
+When adding a view to an existing hierarchy in code it's good to remember that by default the standard autoresizing mask will be translated into a set of constraints. This may be fine if that's what you want or the view is never asked to resize in response to changes to it's superviews frame. Personally, this has been an issue enough times that I almost always set translatesAutoresizingMaskIntoConstraints to NO for views I initialize in code and replace the autoresize mask with an explicit set of constraints. Taking the time to learn the [ASCII-art formatting style](http://developer.apple.com/library/ios/#documentation/UserExperience/Conceptual/AutolayoutPG/Articles/formatLanguage.html) helps _a lot_ with this.
 
 ## Use '_autoLayoutTrace' to Detect Ambiguous Layouts
 
