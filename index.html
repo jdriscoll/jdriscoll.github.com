@@ -5,11 +5,12 @@ id: blog
 
 <section id="page">
 {% for post in site.categories.blog %}
+{% unless post.draft %}
   <article>
     <header>
       <em class="post-date">{{ post.date | date: "%B %d, %Y" }}</em>
       <h2>
-        <a href="{{ post.url }}" title="{{ post.title }}"> 
+        <a href="{{ post.url }}" title="{{ post.title }}">
           {{ post.title }}
         </a>
       </h2>
@@ -19,5 +20,6 @@ id: blog
       <p><a href="{{ post.url }}">View entire post...</a></p>
     </div>
   </article>
+{% endunless %}
 {% endfor %}
 </section>
