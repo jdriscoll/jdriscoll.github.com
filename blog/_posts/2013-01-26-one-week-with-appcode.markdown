@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-draft: true
+draft: false
 title: One Week With AppCode
 excerpt: On Monday I decided to try using AppCode for an entire day. Then one day turned into a week.
 ---
