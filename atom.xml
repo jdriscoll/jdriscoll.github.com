@@ -3,7 +3,7 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  
+
   <title>A Developing Story</title>
   <link href="http://adevelopingstory.com/atom.xml" rel="self"/>
   <link href="http://adevelopingstory.com/"/>
@@ -15,6 +15,7 @@ layout: nil
   </author>
 
  {% for post in site.categories.blog %}
+ {% unless post.draft %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="http://adevelopingstory.com{{ post.url }}"/>
@@ -23,6 +24,7 @@ layout: nil
    <id>http://adevelopingstory.com{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
+ {% endunless %}
  {% endfor %}
- 
+
 </feed>
