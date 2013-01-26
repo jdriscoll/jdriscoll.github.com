@@ -22,8 +22,11 @@ While Intentions are powerful, they're not editable. Thankfully AppCode also pro
 
 __Quick Tip:__ I know this post is about AppCode but did you know that pasting "<#your_placeholder_name#>" will generate tab-able placeholders in Xcode? For example, you might have a TextExpander snippet like this for generating block typedefs (the syntax nearly always escapes me):
 
-    typedef <#void#> (^<#BlockTypeName#>)(<#args#>);
+{% highlight objc %}
 
+typedef <#void#> (^<#BlockTypeName#>)(<#args#>);  
+
+{% endhighlight %}
 
 (Thanks [Brian](http://twitter.com/bricooke))
 
