@@ -20,9 +20,10 @@ One of my favorite features is what JetBrains calls "Intentions". These are cont
 
 While Intentions are powerful, they're not editable. Thankfully AppCode also provides "Live Templates", snippets basically, that you can create and customize. Live templates support contexts and placeholders and work well. Unfortunately, I've found myself using Live Templates more than I would normally as App Code doesn't seem to get along well with [TextExpander](http://smilesoftware.com/TextExpander/index.html). Sometimes it works fine, sometimes it seems to just inject the last thing you copied in App Code. While TextExpander snippets have no knowledge of code context they work everywhere and sync over dropbox.
 
-__Quick Tip:__ I know this post is about AppCode but did you know that pasting `<#your_placeholder_name#>` will generate tab-able placeholders in Xcode? For example, you might have a TextExpander snippet like this for generating block typedefs (the syntax nearly always escapes me):
+__Quick Tip:__ I know this post is about AppCode but did you know that pasting "<#your_placeholder_name#>" will generate tab-able placeholders in Xcode? For example, you might have a TextExpander snippet like this for generating block typedefs (the syntax nearly always escapes me):
 
     typedef <#void#> (^<#BlockTypeName#>)(<#args#>);
+
 
 (Thanks [Brian](http://twitter.com/bricooke))
 
