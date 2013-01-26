@@ -36,7 +36,7 @@ In addition to Intensions AppCode features much faster and more powerful refacto
 
 ### Inspections
 
-Like Xcode, AppCode constantly evaluates your project and warns you of problems in real time (I believe the latest EAP has support for Clang static analysis too) and can offer to fix many issue automatically. It also has great code reformatting support and can example your files, or your project, for unused imports and remove them. The import optimization is a little aggressive for my tastes (I often want to have an import in the source file even if it's in my pre-compiled header file) but it's never broken anything.
+Like Xcode, AppCode constantly evaluates your project and warns you of problems in real time (I believe the latest EAP has support for Clang static analysis too) and can offer to fix many issue automatically. It also has great code reformatting support and can examine your files, or your project, for unused imports and remove them. The import optimization is a little aggressive for my tastes (I often want to have an import in the source file even if it's in my pre-compiled header file) but it's never broken anything.
 
 ## There's Got to Be a Catch?
 
@@ -46,7 +46,7 @@ While there are a lot of things to like about AppCode it's not all sunshine and 
 
 I imaging the first thing many developers get hung up on is the appearance of the app. It's not a native Cocoa app, and though I think the developers have done a pretty good job making it fit in on OS X, it's not going to win any design awards. The icon is not to my taste either. It's not Handbrake horrible but it's not great. It's Java, you just have to [deal with it](http://www.funnyordie.com/lists/62bea1fdd2/the-best-deal-with-it-gifs).
 
-### Death by Customization
+### Death by Preferences
 
 The documentation is another weak spot. There's virtually none. Digging into the massive number of preference dialogs can help but sometimes things are labeled in a way that makes no sense (to me) and there's no where to turn to for clarification. The preferences themselves are probably both a pro and a con. You can fiddle with and tweak a million things in the app but in my experience you end up _needing_ to fiddle with and tweak a million things before you get it even close to working the way _you_ want. Oh, and the preferences dialog is modal so at least at first you're probably going to get really tired of launching (and relaunching) the preference dialog. I really hope the preferences export option works well because if I ever had to go back in and start from scratch I might just give up and go back to Xcode.
 
