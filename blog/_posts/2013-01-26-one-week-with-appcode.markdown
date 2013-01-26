@@ -14,7 +14,7 @@ Quite a bit actually. While AppCode can't replace Xcode entirely (this isn't a j
 
 ### Intentions
 
-One of my favorite features is what JetBrains calls "Intentions". These are context sensitive (and language specific) actions that perform common tasks automatically. They can add missing imports, add definitions for existing methods in your interface, convert instance variables to properties and a hundred other things. All of this is pretty much as easy as typing option-return and sending AppCode off to do your bidding. I've found Intensions drastically reduce both the number of distractions and the amount of navigation I need to do while writing code. Instead of jumping up to the top of the file to add a property to the private interface I can just use the property and AppCode will see that it doesn't exist yet and offer to define it wherever I'd like. If I need to declare an existing method in the public interface it only takes two keystrokes and I don't have to leave my place the implementation file.
+One of my favorite features is what JetBrains calls "Intentions". These are context sensitive (and language specific) actions that perform common tasks automatically. They can add missing imports, add definitions for existing methods in your interface, convert instance variables to properties and a hundred other things. All of this is pretty much as easy as typing option-return and sending AppCode off to do your bidding. I've found Intentions drastically reduce both the number of distractions and the amount of navigation I need to do while writing code. Instead of jumping up to the top of the file to add a property to the private interface I can just use the property and AppCode will see that it doesn't exist yet and offer to define it wherever I'd like. If I need to declare an existing method in the public interface it only takes two keystrokes and I don't have to leave my place the implementation file.
 
 ### Live Templates
 
@@ -32,11 +32,11 @@ typedef <#void#> (^<#BlockTypeName#>)(<#args#>);
 
 ### Refactoring
 
-In addition to Intensions AppCode features much faster and more powerful refactoring support than Xcode. Simple rename operations are blazing fast. I've also found myself starting to write code inline that I would previously start a new method for because I can just "extract" it into a new method after the fact. Again, it saves typing, but it also eliminates a distraction and lets me focus more on the code. AppCode's refactoring support also makes it easy to convert all the magic numbers you might have laying around ("I'll fix that later...") to constants.
+In addition to Intentions, AppCode features much faster and more powerful refactoring support than Xcode. Simple rename operations are blazing fast. I've also found myself starting to write code inline that I would previously start a new method for because I can just "extract" it into a new method after the fact. Again, it saves typing, but it also eliminates a distraction and lets me focus more on the code. AppCode's refactoring support also makes it easy to convert all the magic numbers you might have laying around ("I'll fix that later...") to constants.
 
 ### Inspections
 
-Like Xcode, AppCode constantly evaluates your project and warns you of problems in real time (I believe the latest EAP has support for Clang static analysis too) and can offer to fix many issue automatically. It also has great code reformatting support and can examine your files, or your project, for unused imports and remove them. The import optimization is a little aggressive for my tastes (I often want to have an import in the source file even if it's in my pre-compiled header file) but it's never broken anything.
+Like Xcode, AppCode constantly evaluates your project and warns you of problems in real time (I believe the latest EAP has support for Clang static analysis too) and can offer to fix many issues automatically. It also has great code reformatting support and can examine your files, or your project, for unused imports and remove them. The import optimization is a little aggressive for my tastes (I often want to have an import in the source file even if it's in my pre-compiled header file) but it's never broken anything.
 
 ## There's Got to Be a Catch?
 
