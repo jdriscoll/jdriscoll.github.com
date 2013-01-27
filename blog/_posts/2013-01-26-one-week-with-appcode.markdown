@@ -18,7 +18,7 @@ One of my favorite features is what JetBrains calls "Intentions". These are cont
 
 ### Live Templates
 
-While Intentions are powerful, they're not editable. Thankfully AppCode also provides "Live Templates", snippets basically, that you can create and customize. Live templates support contexts and placeholders and work well. Unfortunately, I've found myself using Live Templates more than I would normally as App Code doesn't seem to get along well with [TextExpander](http://smilesoftware.com/TextExpander/index.html). Sometimes it works fine, sometimes it seems to just inject the last thing you copied in App Code. While TextExpander snippets have no knowledge of code context they work everywhere and sync over dropbox.
+While Intentions are powerful, they're not editable. Thankfully AppCode also provides "Live Templates", snippets basically, that you can create and customize. Live Templates support contexts and placeholders and work well. Unfortunately, I've found myself using Live Templates more than I would normally as App Code doesn't seem to get along well with [TextExpander](http://smilesoftware.com/TextExpander/index.html). Sometimes it works fine, sometimes it seems to just inject the last thing you copied in App Code. While TextExpander snippets have no knowledge of code context they work everywhere and sync over dropbox.
 
 __Quick Tip:__ I know this post is about AppCode but did you know that pasting "<#your_placeholder_name#>" will generate tab-able placeholders in Xcode? For example, you might have a TextExpander snippet like this for generating block typedefs (the syntax nearly always escapes me):
 
@@ -32,7 +32,7 @@ typedef <#void#> (^<#BlockTypeName#>)(<#args#>);
 
 ### Refactoring
 
-In addition to Intentions, AppCode features much faster and more powerful refactoring support than Xcode. Simple rename operations are blazing fast. I've also found myself starting to write code inline that I would previously start a new method for because I can just "extract" it into a new method after the fact. Again, it saves typing, but it also eliminates a distraction and lets me focus more on the code. AppCode's refactoring support also makes it easy to convert all the magic numbers you might have laying around ("I'll fix that later...") to constants.
+In addition to Intentions, AppCode features much faster and more powerful refactoring support than Xcode. Simple rename operations are blazing fast. I've also found myself starting to write code inline that I would previously start a new method for because I can just "extract" it into a new method after the fact. Again, it saves typing, but it also eliminates a distraction and lets me focus more on the code. AppCode's refactoring support also makes it easy to convert all the <a href="http://en.wikipedia.org/wiki/Magic_number_(programming)">magic numbers</a> you might have laying around (I'll fix that later...) to constants.
 
 ### Inspections
 
