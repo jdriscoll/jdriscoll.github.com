@@ -1,7 +1,7 @@
 ---
 layout: post
 published: true
-draft: true
+draft: false
 title: Announcing Rego for iOS
 excerpt: Makalu's new app is coming this month to an iPhone (or iPod Touch) near you.
 ---
