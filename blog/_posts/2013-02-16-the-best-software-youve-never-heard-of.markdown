@@ -26,12 +26,14 @@ Describing ScreenFloat is always a bit of challenge. Yes, it's an app that takes
 Screeny is a quick and easy screen recording app. I mostly use it for grabbing quick videos of interface animations and bugs for sharing with other developers and remote team members. It probably wasn't the best tool for the job but I even recorded the [OnePAD screencast][OnePADScreencast] with it.
 
 * [Slicy][Slicy] (née LayerCake) from __MacRabbit__  
-Anyone who does web or UI design in Adobe's powerhouse image editor owes it to themselves to check out this app. All you need to do is organize your files into named layer groups (see the [examples][SlicyExamples]) and Slicy will export your assets automatically. It can even generate your 1x or 2x assets automatically.
+Anyone who does web or UI design in Adobe's powerhouse image editor owes it to themselves to check out this app. All you need to do is organize your files into named layer groups (see the [examples][SlicyExamples]) and Slicy will export your assets. It can even generate your 1x or 2x versions automatically.
 
 * [Soulver][Soulver] from __Acqualia Software__  
 Soulver is hands-down the best tool I've found for calculating layout dimensions. If you design software with a user interface you should have this app. There's also support for variables and line references and all kinds of other great stuff.
 
 While Frank DeLoupe and Screeny are only available on the Mac App Store, the rest of these apps have a free trial available and you should give them a look if you haven't already.
+
+__Updated:__ I just received a recommendation for [ColorSnapper][ColorSnapper] as an alternative simple color picker. While it doesn't integrate with Photoshop, I like the way it lets you pick two different formats without having to access the preferences. (Thanks [Brian](http://twitter.com/bricooke).)
 
 [FrankDeLoupe]: http://jumpzero.com/frank/
 [GitBox]: http://gitboxapp.com/
@@ -43,3 +45,4 @@ While Frank DeLoupe and Screeny are only available on the Mac App Store, the res
 [SlicyExamples]: http://macrabbit.com/slicy/help/
 [Slicy]: http://macrabbit.com/slicy/
 [Soulver]: http://www.acqualia.com/soulver/
+[ColorSnapper]: http://colorsnapper.com/
