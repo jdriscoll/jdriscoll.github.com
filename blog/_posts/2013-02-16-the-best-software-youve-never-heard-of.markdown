@@ -12,13 +12,13 @@ A lot of great developers don't have the financial resources to flood the market
 Frank DeLoupe is a great little loupe and color picker app that lives in your menubar and integrates with Photoshop. You can choose to copy colors in pretty much any format you'd want like RGB, Hex or UIColor.
 
 * [GitBox][GitBox] from __Oleg Andreev__  
-GitBox is a GUI front end for the Git version control system. While I still prefer the command line for more advanced operations I like GitBox's simple UI for making basic commits, looking at previous changes, and to help keep track of what's going on in all the repositories I need to watch. 
+GitBox is a GUI front end for the Git version control system. While I still prefer the command line for more advanced operations I like GitBox's simple UI for making basic commits and looking at previous changes. I also use GitBox to help keep track of what's going on in both my work and personal projects as well as other open source projects that I need to keep an eye on.
 
 * [Kaleidoscope][Kaleidoscope] from __Black Pixel__  
 While Kaleidoscope has gotten a relatively large amount of press I'm going to include it anyway. The new version is the best diff tool I've ever used and it's become a major part of my daily workflow. It integrates well with GitBox and makes reviewing code changes, and even _image asset changes_, much easier.
 
 * [MockSMTP][MockSMTP] from __Xilinus__  
-MockSTMP listens for STMP connections on your Mac and makes developing and testing web apps that need to talk to an SMTP server much easier. Messages sent to it's port number are displayed in a Mail-like interface and you can view them as HTML, plain text or the raw message with headers, mime-parts and all.
+MockSTMP listens for SMTP connections on your Mac and makes developing and testing web apps that need to talk to an SMTP server much easier. Messages sent to it's port number are displayed in a Mail-like interface and you can view them as HTML, plain text or the raw message with headers, mime-parts and all.
 
 * [ScreenFloat][ScreenFloat] from __Eternal Storms Software__  
 Describing ScreenFloat is always a bit of challenge. Yes, it's an app that takes screenshots but that's not really the point. What makes ScreenFloat useful is how it displays these screenshots. Screenshots taken with ScreenFloat are displayed in a small window that floats above all your other apps. A few days ago I needed to update a view that uses AutoLayout and I just took a screenshot of the view's constraints in Interface Builder before I started moving things around. When I was ready to reapply those constraints it was easy to refer to the original set. It's kind of like having a photographic memory.
