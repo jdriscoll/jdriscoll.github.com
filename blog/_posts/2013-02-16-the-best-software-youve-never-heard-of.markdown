@@ -26,7 +26,7 @@ Describing ScreenFloat is always a bit of challenge. Yes, it's an app that takes
 Screeny is a quick and easy screen recording app. I mostly use it for grabbing quick videos of interface animations and bugs for sharing with other developers and remote team members. It probably wasn't the best tool for the job but I even recorded the [OnePAD screencast][OnePADScreencast] with it.
 
 * [Slicy][Slicy] (née LayerCake) from __MacRabbit__  
-Speaking of Photoshop… Anyone who does web or UI design in Adobe's powerhouse image editor owes it to themselves to check out this app. All you need to do is organize your files into named layer groups (see the [examples][SlicyExamples]) and Slicy will export your assets automatically. It can even generate your 1x or 2x assets automatically.
+Anyone who does web or UI design in Adobe's powerhouse image editor owes it to themselves to check out this app. All you need to do is organize your files into named layer groups (see the [examples][SlicyExamples]) and Slicy will export your assets automatically. It can even generate your 1x or 2x assets automatically.
 
 * [Soulver][Soulver] from __Acqualia Software__  
 Soulver is hands-down the best tool I've found for calculating layout dimensions. If you design software with a user interface you should have this app. There's also support for variables and line references and all kinds of other great stuff.
