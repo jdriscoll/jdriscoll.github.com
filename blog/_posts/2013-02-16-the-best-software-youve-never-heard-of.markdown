@@ -1,7 +1,6 @@
 ---
 layout: post
 published: true
-draft: true
 title: The Best Software You Might Never Have Heard Of
 excerpt: I've assembled a list of software tools I've come to rely on that might not be on your radar. 
 ---
